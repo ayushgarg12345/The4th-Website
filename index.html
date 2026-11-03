@@ -311,6 +311,45 @@ header.nav.hide{transform:translateY(-110%)}
 .ledger .signal.in li small{transform:none;opacity:1}
 .ledger .signal li:hover{transform:translateX(8px);transition-delay:0s}
 
+/* partnership: we grow when you grow */
+.together{margin-top:64px}
+.together .legend{display:flex;flex-wrap:wrap;gap:24px;margin-bottom:12px;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.together .legend span{display:flex;align-items:center;gap:10px}
+.together .legend span::before{content:"";width:24px;height:3px;border-radius:3px;background:var(--fg)}
+.together .legend .us::before{background:var(--lime)}
+.together .chart{position:relative;padding-top:44px}
+.together .tag{position:absolute;right:0;top:0;font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;background:var(--lime);color:var(--charcoal);padding:6px 12px;border-radius:999px;transition:opacity .6s 2.3s}
+.together svg{display:block;width:100%;height:auto;overflow:visible}
+.together .grid line{stroke:var(--line);stroke-width:1}
+.together .ln{fill:none;stroke-width:3;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:0;transition:stroke-dashoffset 2.4s var(--ease)}
+.together .you{stroke:var(--fg)}
+.together .us{stroke:var(--lime);transition-delay:.25s}
+.together .area{fill:var(--lime);opacity:.08;transition:opacity 1s 1.8s}
+.together .end,.together .runner{transition:opacity .6s 2.3s}
+.together .end .core{fill:var(--lime)}
+.together .end .pulse{fill:none;stroke:var(--lime);stroke-width:2;transform-box:fill-box;transform-origin:center;animation:gtpulse 2s ease-out infinite}
+.together .runner .r1{fill:var(--fg)}
+.together .runner .r2{fill:var(--lime)}
+@keyframes gtpulse{from{transform:scale(1);opacity:.8}to{transform:scale(4);opacity:0}}
+.anim .together .ln{stroke-dashoffset:1}
+.anim .together.in .ln{stroke-dashoffset:0}
+.anim .together .area,.anim .together .end,.anim .together .runner,.anim .together .tag{opacity:0}
+.anim .together.in .area{opacity:.08}
+.anim .together.in .end,.anim .together.in .runner,.anim .together.in .tag{opacity:1}
+@media (prefers-reduced-motion:reduce){.together .runner{display:none}}
+.model2{display:grid;gap:16px;margin-top:56px}
+@media (min-width:860px){.model2{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}}
+.model2 article{border-radius:24px;padding:clamp(26px,3.5vw,44px);display:flex;flex-direction:column;gap:10px;position:relative;overflow:hidden}
+.model2 .gs{background:var(--lime);color:var(--charcoal)}
+.model2 .gs .mono{color:#3A4A14}
+.model2 .gs h3{font-size:clamp(36px,4.6vw,64px);letter-spacing:-.05em}
+.model2 .gs p:last-child{font-size:clamp(18px,1.8vw,22px);font-weight:600;letter-spacing:-.02em;max-width:24ch}
+.model2 .gs .up{position:absolute;right:28px;top:22px;font-size:clamp(48px,6vw,88px);font-weight:800;line-height:1;animation:gtrise 2.6s var(--ease) infinite}
+@keyframes gtrise{0%,100%{transform:translateY(8px)}50%{transform:translateY(-8px)}}
+.model2 .base{border:1px solid var(--line);justify-content:flex-end}
+.model2 .base h3{font-size:clamp(22px,2.2vw,28px);color:var(--mute)}
+.model2 .base p{color:var(--mute);font-size:15px}
+
 /* capabilities */
 .caps{margin-top:64px;display:grid;gap:16px}
 @media (min-width:700px){.caps{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -769,43 +808,28 @@ footer{padding-top:80px;padding-bottom:calc(36px + env(safe-area-inset-bottom,0p
 <section class="sec" id="partnership" data-tone="dark">
   <div class="wrap">
     <p class="mono label reveal">The partnership model</p>
-    <h2 class="h2 reveal">We don't believe in disconnected incentives.</h2>
-    <p class="lead reveal" style="margin-top:24px">Your growth needs more than a vendor relationship. It needs shared accountability, transparent measurement and a partner invested in the outcome.</p>
-    <div class="model">
-      <article class="part reveal">
-        <p class="mono">Part 01</p>
-        <h3>Operating partnership</h3>
-        <p>You fund the agreed operating costs to build and run the growth system.</p>
-        <ul><li>Strategy and execution</li><li>Team and specialist resources</li><li>Technology and tools</li><li>Agreed operating requirements</li></ul>
-        <p style="font-size:14px">Advertising spend is budgeted and approved by you, separately.</p>
-      </article>
-      <article class="part reveal">
-        <p class="mono">Part 02</p>
-        <h3>Performance participation</h3>
-        <p>THE4TH earns an additional fee linked to a measurable commercial outcome we agree on together, before work begins.</p>
-        <ul><li>Based on collected revenue, eligible orders or another agreed metric</li><li>Attribution method written down upfront</li><li>Full reporting access for both sides</li></ul>
-      </article>
-    </div>
-    <div class="align reveal" id="align">
-      <svg viewBox="0 0 520 300" aria-hidden="true">
-        <path class="ln a" pathLength="1" d="M10 60 C 140 60, 200 150, 290 160"/>
-        <path class="ln b" pathLength="1" d="M10 260 C 140 260, 200 170, 290 160"/>
-        <path class="ln c" pathLength="1" d="M290 160 L 500 40"/>
-        <path class="ln c" pathLength="1" d="M470 36 L 500 40 L 488 68"/>
-        <text x="10" y="44">You invest in operations</text>
-        <text x="10" y="290">We participate in growth</text>
-        <text x="330" y="150">Same direction</text>
-      </svg>
-      <div>
-        <p class="mono label">Core belief</p>
-        <p class="big" style="font-weight:800;line-height:1;max-width:none">Our incentives should move in the same direction.</p>
-        <p class="lead" style="margin-top:20px">You invest in the agreed operations. We participate in the growth we help create.</p>
+    <h2 class="h2 reveal">We grow when you grow.</h2>
+    <p class="lead reveal" style="margin-top:24px">You don't need another agency. You need a partner with real skin in the game.</p>
+    <div class="together reveal">
+      <div class="legend"><span class="you">Your growth</span><span class="us">Our earnings</span></div>
+      <div class="chart">
+        <span class="tag">Growing together</span>
+        <svg viewBox="0 0 800 320" aria-hidden="true">
+          <g class="grid"><line x1="0" y1="80" x2="800" y2="80"/><line x1="0" y1="160" x2="800" y2="160"/><line x1="0" y1="240" x2="800" y2="240"/><line x1="0" y1="320" x2="800" y2="320"/></g>
+          <path class="area" d="M20 300 C 160 296, 240 262, 340 234 S 520 166, 600 126 S 730 52, 780 30 L 780 320 L 20 320 Z"/>
+          <path class="ln you" pathLength="1" d="M20 290 C 160 285, 240 250, 340 220 S 520 150, 600 110 S 730 40, 780 30"/>
+          <path class="ln us" pathLength="1" d="M20 300 C 160 296, 240 262, 340 234 S 520 166, 600 126 S 730 52, 780 30"/>
+          <g class="runner">
+            <circle r="5" class="r1"><animateMotion dur="3.2s" repeatCount="indefinite" path="M20 290 C 160 285, 240 250, 340 220 S 520 150, 600 110 S 730 40, 780 30"/></circle>
+            <circle r="5" class="r2"><animateMotion dur="3.2s" begin="0.25s" repeatCount="indefinite" path="M20 300 C 160 296, 240 262, 340 234 S 520 166, 600 126 S 730 52, 780 30"/></circle>
+          </g>
+          <g class="end"><circle class="pulse" cx="780" cy="30" r="8"/><circle class="core" cx="780" cy="30" r="8"/></g>
+        </svg>
       </div>
     </div>
-    <div class="terms reveal">
-      <p class="mono">Every agreement defines, in writing</p>
-      <ol><li>What counts as an attributable conversion</li><li>Revenue, orders or other agreed metric</li><li>Attribution methodology</li><li>Refunds and cancellations</li><li>Repeat purchases</li><li>Reporting access</li><li>Client responsibilities</li><li>Payment timing</li></ol>
-      <p class="disclaim">We don't guarantee growth. Sales depend on product, pricing, fulfilment and many things outside any partner's control. What we commit to is clear deliverables, honest measurement and a fee that rises only when agreed results do.</p>
+    <div class="model2">
+      <article class="gs reveal"><span class="up" aria-hidden="true">↗</span><p class="mono">Where we focus</p><h3>Growth Share</h3><p>We earn more only when your results grow.</p></article>
+      <article class="base reveal"><h3>Base fee</h3><p>Keeps your growth engine running.</p></article>
     </div>
   </div>
 </section>
