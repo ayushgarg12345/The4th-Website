@@ -522,13 +522,85 @@ footer{padding-top:80px;padding-bottom:calc(36px + env(safe-area-inset-bottom,0p
 footer{padding-top:72px}
 .foot-mark{margin-top:56px}
 
-/* partnership: centred layout */
-#partnership .wrap{text-align:center}
-#partnership .label{justify-content:center;max-width:none}
-#partnership .lead{margin-inline:auto}
-#partnership .together{max-width:960px;margin-inline:auto}
-#partnership .together .legend{justify-content:center}
-#partnership .model2{max-width:960px;margin-inline:auto;text-align:left}
+/* approach: stage stories + animations */
+.stage-panel{display:grid;min-height:0}
+.stage{position:relative;inset:auto;grid-area:1/1}
+.stage .blk{margin-top:20px}
+.stage .blk > .mono{display:block;margin-bottom:8px;color:var(--acc)}
+.stage .blk p{color:var(--mute);font-size:16px;line-height:1.65;max-width:62ch}
+.stage .blk.real p{color:var(--fg)}
+.stage .hl{color:var(--acc);font-weight:700}
+.stage .next{margin-top:22px}
+.viz{margin:6px 0 16px;padding:18px;border:1px solid var(--line);border-radius:16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--mute)}
+.stage.on .viz{animation:vizin .6s var(--ease) both}
+@keyframes vizin{from{opacity:0;transform:translateY(10px)}}
+/* 01 funnel */
+.funnel{display:grid;gap:12px}
+.fr{display:grid;grid-template-columns:110px minmax(0,1fr) 64px;gap:12px;align-items:center}
+.fr .bar{position:relative;height:14px}
+.fr .bar i{position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--fg);opacity:.85;border-radius:3px;transform-origin:left}
+.fr.leak .bar i{background:var(--lime);opacity:1}
+.fr em{font-style:normal;color:var(--lime);text-transform:uppercase}
+.fr .bar b{position:absolute;top:-10px;left:calc(var(--w) + 8px);width:6px;height:6px;border-radius:50%;background:var(--lime);opacity:0;animation:drip 1.8s ease-in infinite}
+.fr .bar b:nth-of-type(2){left:calc(var(--w) + 18px);animation-delay:.6s}
+.fr .bar b:nth-of-type(3){left:calc(var(--w) + 28px);animation-delay:1.2s}
+@keyframes drip{0%{opacity:0;transform:translateY(0)}20%{opacity:1}100%{opacity:0;transform:translateY(26px)}}
+.stage.on .fr .bar i{animation:barin .9s var(--ease) both}
+.stage.on .fr:nth-child(2) .bar i{animation-delay:.25s}
+.stage.on .fr:nth-child(3) .bar i{animation-delay:.5s}
+.stage.on .fr em{animation:blink 1.6s ease-in-out infinite}
+@keyframes barin{from{transform:scaleX(0)}}
+@keyframes blink{50%{opacity:.35}}
+/* 02 dashboard vs bank */
+.versus{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.versus .card{border:1px solid var(--line);border-radius:12px;padding:14px;display:grid;gap:6px;min-width:0}
+.versus strong{font-family:var(--f-sans);font-size:clamp(24px,2.6vw,34px);font-weight:800;letter-spacing:-.04em;color:var(--fg);position:relative;justify-self:start}
+.versus .bank strong{color:#F28C7A}
+.versus small{font-size:11px;letter-spacing:.02em;text-transform:none}
+.versus .dash strong::after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:3px;background:#F28C7A;border-radius:2px;transform-origin:left}
+.stage.on .versus .dash{animation:vizin .6s var(--ease) both .15s}
+.stage.on .versus .bank{animation:vizin .6s var(--ease) both .9s}
+.stage.on .versus .dash strong::after{animation:barin .5s var(--ease) both 1.6s}
+/* 03 carts + 100 dots */
+.conv{display:grid;gap:16px}
+.vrow{display:grid;grid-template-columns:minmax(0,1fr) 150px;gap:16px;align-items:center}
+.vrow small{font-size:11px;line-height:1.5}
+.carts{display:flex;gap:6px}
+.carts i{width:18px;height:14px;border-radius:3px;background:var(--fg)}
+.carts i.gone{background:transparent;outline:1px dashed var(--mute);outline-offset:-1px}
+.stage.on .carts i.gone{animation:gone .5s both;animation-delay:var(--d)}
+@keyframes gone{from{background:var(--fg);outline-color:transparent}}
+.dots{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:5px;max-width:300px}
+.dots i{aspect-ratio:1;border-radius:50%;background:var(--line)}
+.dots i.buy,.dots i.new{background:var(--lime)}
+.dots i.new{box-shadow:0 0 0 3px rgba(199,243,106,.3)}
+.stage.on .dots i.new{animation:newbuy 1.4s var(--ease) both 1.2s}
+@keyframes newbuy{0%,30%{background:var(--line);box-shadow:none;transform:scale(1)}65%{transform:scale(1.9)}}
+.plus{display:inline-block;margin-right:8px;padding:2px 8px;border-radius:999px;background:var(--lime);color:var(--charcoal);font-weight:500}
+.stage.on .plus{animation:vizin .5s var(--ease) both 2.2s}
+/* 04 profit across orders */
+.cum{position:relative;height:206px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:420px}
+.cum .zero{position:absolute;left:0;right:0;top:110px;height:1px;background:var(--line)}
+.cum .col{position:relative}
+.cum .col i{position:absolute;left:22%;right:22%;bottom:60px;height:var(--h);background:var(--lime);border-radius:4px 4px 0 0;transform-origin:bottom}
+.cum .col.neg i{bottom:auto;top:110px;background:#F28C7A;border-radius:0 0 4px 4px;transform-origin:top}
+.cum .col b{position:absolute;left:0;right:0;text-align:center;color:var(--fg);font-weight:500}
+.cum .col:nth-child(3) b{bottom:102px}.cum .col:nth-child(4) b{bottom:156px}
+.cum .col.neg b{bottom:auto;top:88px}
+.cum .col > span{position:absolute;left:0;right:0;bottom:0;text-align:center}
+.stage.on .cum .col i{animation:rise .7s var(--ease) both}
+.stage.on .cum .col:nth-child(3) i{animation-delay:.6s}
+.stage.on .cum .col:nth-child(4) i{animation-delay:1.2s}
+.stage.on .cum .col b{animation:vizin .4s both .5s}
+.stage.on .cum .col:nth-child(3) b{animation-delay:1.1s}
+.stage.on .cum .col:nth-child(4) b{animation-delay:1.7s}
+@keyframes rise{from{transform:scaleY(0)}}
+@media (max-width:520px){
+  .fr{grid-template-columns:92px minmax(0,1fr) 54px;gap:8px}
+  .versus{grid-template-columns:minmax(0,1fr)}
+  .vrow{grid-template-columns:minmax(0,1fr)}
+}
+.src{margin-top:28px;font-size:10px}
 
 /* cursor */
 .cur{position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1px solid #fff;pointer-events:none;z-index:200;mix-blend-mode:difference;display:none;transition:width .3s,height .3s,margin .3s,background-color .3s}
@@ -637,7 +709,7 @@ footer{padding-top:72px}
   <div class="wrap">
     <p class="mono label reveal">Our approach · The THE4TH Growth System</p>
     <h2 class="h2 reveal">Four stages. One connected growth system.</h2>
-    <p class="lead reveal" style="margin-top:24px">Each stage feeds the next, and what we learn in Compound flows back into Discover. Select a stage to see what happens inside it.</p>
+    <p class="lead reveal" style="margin-top:24px">Most growth problems get diagnosed in the wrong place. Rising ad costs are often a conversion problem. Flat sales are often a retention problem. We work through four stages in order, so we fix the cause, not the symptom. Select a stage to see inside it.</p>
     <div class="sys">
       <div class="diagram reveal" id="diagram">
         <svg viewBox="0 0 400 400" aria-hidden="true">
@@ -663,42 +735,70 @@ footer{padding-top:72px}
           <article class="stage on">
             <p class="mono" style="margin-top:22px">Stage 01</p>
             <h3>Discover</h3>
-            <p class="tag">Look beyond the obvious.</p>
-            <p class="desc">Before executing marketing, understand the business. We find out what is actually limiting growth.</p>
-            <ul class="chips"><li>Business diagnosis</li><li>Market research</li><li>Customer segmentation</li><li>Competitor analysis</li><li>Positioning</li><li>Offer evaluation</li><li>Customer journey analysis</li></ul>
-            <div class="obj"><span class="mono">Objective</span><p>Identify the real growth constraint.</p></div>
+            <p class="tag">Find the real constraint.</p>
+            <div class="blk"><span class="mono">Sound familiar?</span><p>You've changed agencies, tried new creatives and raised budgets, and the numbers still won't move.</p></div>
+            <div class="blk real"><span class="mono">What's really happening</span>
+              <div class="viz funnel" aria-hidden="true">
+                <div class="fr"><span>10,000 visit</span><span class="bar" style="--w:100%"><i></i></span></div>
+                <div class="fr"><span>300 add to cart</span><span class="bar" style="--w:62%"><i></i></span></div>
+                <div class="fr leak"><span>90 buy</span><span class="bar" style="--w:34%"><i></i><b></b><b></b><b></b></span><em>The leak</em></div>
+              </div>
+              <p>Picture a common funnel: <b class="hl">10,000 people visit, 300 add to cart, 90 buy.</b> Most businesses respond by buying more visitors. But if the weak step is the <b class="hl">300 → 90</b>, doubling traffic also doubles the leak. Fixing the weakest step lifts every number after it.</p>
+            </div>
+            <div class="blk"><span class="mono">What we do</span><p>Before touching a single campaign, we find that one constraint and build the plan around it.</p></div>
             <p class="next">Feeds into → Acquire</p>
           </article>
           <article class="stage">
             <p class="mono" style="margin-top:22px">Stage 02</p>
             <h3>Acquire</h3>
-            <p class="tag">Attract the right customers.</p>
-            <p class="desc">Build the demand-generation and acquisition systems the business actually needs, not every channel available.</p>
-            <ul class="chips"><li>Meta advertising</li><li>Google advertising</li><li>SEO</li><li>Content &amp; creative strategy</li><li>Audience research</li><li>Landing-page traffic</li><li>Channel optimisation</li></ul>
-            <div class="obj"><span class="mono">Objective</span><p>Relevant customers through economically viable channels.</p></div>
+            <p class="tag">Win customers you can afford.</p>
+            <div class="blk"><span class="mono">Sound familiar?</span><p>Your dashboard says the ads are working, but your bank account doesn't agree.</p></div>
+            <div class="blk real"><span class="mono">What's really happening</span>
+              <div class="viz versus" aria-hidden="true">
+                <div class="card dash"><span class="mono">Your ads dashboard</span><strong>3× ROAS</strong><small>₹2,400 order from ₹800 of ads</small></div>
+                <div class="card bank"><span class="mono">Your bank account</span><strong>−₹200</strong><small>₹600 profit − ₹800 ad cost</small></div>
+              </div>
+              <p>Say a new customer costs you <b class="hl">₹800</b> in ads and places a <b class="hl">₹2,400</b> order. The dashboard proudly shows <b class="hl">3× ROAS</b>. But after product cost, shipping, fees and returns, that order may leave only <b class="hl">₹600</b> of profit, so every "successful" sale <b class="hl">loses ₹200</b>. A good-looking ROAS can still be losing you money.</p>
+            </div>
+            <div class="blk"><span class="mono">What we do</span><p>We judge every channel by what a customer costs against what they're actually worth, cut what doesn't pay back, and scale what does.</p></div>
             <p class="next">Feeds into → Convert</p>
           </article>
           <article class="stage">
             <p class="mono" style="margin-top:22px">Stage 03</p>
             <h3>Convert</h3>
-            <p class="tag">Turn attention into customers.</p>
-            <p class="desc">Traffic alone is not growth. We improve the path from interest to purchase.</p>
-            <ul class="chips"><li>Website optimisation</li><li>Landing pages</li><li>CRO</li><li>Checkout improvements</li><li>Retargeting</li><li>Customer communication</li><li>Funnel analysis</li></ul>
-            <div class="obj"><span class="mono">Objective</span><p>More of the demand you pay for becomes revenue.</p></div>
+            <p class="tag">Stop paying for visitors who leave.</p>
+            <div class="blk"><span class="mono">Sound familiar?</span><p>Traffic is up, sales aren't. People add to cart and disappear.</p></div>
+            <div class="blk real"><span class="mono">What's really happening</span>
+              <div class="viz conv" aria-hidden="true">
+                <div class="vrow"><span class="carts" data-carts></span><small>7 in 10 carts abandoned</small></div>
+                <div class="vrow"><span class="dots" data-dots></span><small><span class="plus">+33%</span>3 buyers in 100, then 4</small></div>
+              </div>
+              <p>About <b class="hl">7 in 10</b> online shopping carts are abandoned before payment, according to Baymard Institute's research. And the maths of fixing it is powerful: if <b class="hl">3 in 100</b> visitors buy today, getting just <b class="hl">1 more</b> to buy grows sales by <b class="hl">33%</b>, without spending a rupee more on ads.</p>
+            </div>
+            <div class="blk"><span class="mono">What we do</span><p>We find exactly where interested people drop off, and remove the reasons they leave.</p></div>
             <p class="next">Feeds into → Compound</p>
           </article>
           <article class="stage">
             <p class="mono" style="margin-top:22px">Stage 04</p>
             <h3>Compound</h3>
-            <p class="tag">Build sustainable growth.</p>
-            <p class="desc">Understand what works, optimise it and turn it into repeatable systems that get more effective over time.</p>
-            <ul class="chips"><li>Email marketing</li><li>CRM</li><li>WhatsApp workflows</li><li>Repeat purchase</li><li>Analytics &amp; attribution</li><li>Experimentation</li><li>Scaling what works</li></ul>
-            <div class="obj"><span class="mono">Objective</span><p>Better long-term customer economics.</p></div>
-            <p class="next">Learning flows back → Discover</p>
+            <p class="tag">Make every customer worth more.</p>
+            <div class="blk"><span class="mono">Sound familiar?</span><p>You're always chasing new customers and running another sale, while margins keep shrinking.</p></div>
+            <div class="blk real"><span class="mono">What's really happening</span>
+              <div class="viz cum" aria-hidden="true">
+                <span class="zero"></span>
+                <div class="col neg"><i style="--h:18px"></i><b>−₹200</b><span>1 order</span></div>
+                <div class="col"><i style="--h:36px"></i><b>+₹400</b><span>2 orders</span></div>
+                <div class="col"><i style="--h:90px"></i><b>+₹1,000</b><span>3 orders</span></div>
+              </div>
+              <p>Take the customer from Stage 02: <b class="hl">₹800</b> to win, <b class="hl">₹600</b> profit per order. Buy once, and you've <b class="hl">lost ₹200</b>. Buy three times, and you've <b class="hl">made ₹1,000</b> from the same ₹800. Research by Bain &amp; Company found that a <b class="hl">5% increase in customer retention can lift profits by 25% to 95%</b>.</p>
+            </div>
+            <div class="blk"><span class="mono">What we do</span><p>We build the follow-ups, journeys and reasons to return, so every month starts from a stronger base than the last.</p></div>
+            <p class="next">What we learn here flows back into Discover.</p>
           </article>
         </div>
       </div>
     </div>
+    <p class="mono src reveal">Examples are illustrative. Sources: Baymard Institute (cart abandonment), Bain &amp; Company (customer retention).</p>
     <p class="bridge reveal"><span>Your free growth audit runs these same four stages on your business.</span><a href="#audit" class="btn lime magnetic">Get your free audit <span class="arr">→</span></a></p>
   </div>
 </section>
@@ -1078,9 +1178,13 @@ footer{padding-top:72px}
     ctx.fillStyle = rgba(C.lime,.9); ctx.font = "500 10px 'JetBrains Mono', monospace"; ctx.fillText("LOOK DEEPER", lx+36, ly-14);
   }
 
+  /* ---- approach: fill the cart row and 100-dot grid ---- */
+  $$("[data-carts]").forEach(function(d){ for (var i=0;i<10;i++){ var c = document.createElement("i"); if (i<7){ c.className = "gone"; c.style.setProperty("--d", (0.3 + i*0.12) + "s"); } d.appendChild(c); } });
+  $$("[data-dots]").forEach(function(d){ for (var i=0;i<100;i++){ var c = document.createElement("i"); if (i===7||i===38||i===71) c.className = "buy"; if (i===52) c.className = "new"; d.appendChild(c); } });
+
   /* ---- GROWTH SYSTEM diagram ---- */
   var nodes = $$(".node"), stages = $$(".stage"), spokes = $$(".spoke"), bars = $$("#sysTabs i"), tabs = $("#sysTabs");
-  var active = 0, CYCLE = 5000, userPicked = false, lastSwitch = performance.now(), diagVisible = false;
+  var active = 0, CYCLE = 12000, userPicked = false, lastSwitch = performance.now(), diagVisible = false;
   tabs.style.setProperty("--cycle", CYCLE + "ms");
   function setStage(i){
     active = i;
