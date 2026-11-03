@@ -602,6 +602,33 @@ footer{padding-top:72px}
 }
 .src{margin-top:28px;font-size:10px}
 
+/* exclusive partnership: one market */
+.excl{display:grid;gap:48px;align-items:center}
+@media (min-width:960px){.excl{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:72px}}
+.excl .oneMarket{font-size:clamp(40px,5.2vw,84px)}
+.market{width:100%;max-width:480px;justify-self:center;display:grid;gap:28px}
+.mdots{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));row-gap:clamp(20px,3vw,32px);padding-top:24px}
+.mdots i{justify-self:center;width:clamp(10px,1.3vw,15px);aspect-ratio:1;border-radius:50%;background:var(--fg);opacity:.16;position:relative}
+.mdots i.you{background:var(--lime);opacity:1;box-shadow:0 0 0 2px var(--charcoal)}
+.mdots i.you::after{content:"";position:absolute;inset:-14px;border:1.5px solid var(--acc);border-radius:50%;animation:mring 2.6s ease-in-out infinite}
+.mdots i.you::before{content:"You";position:absolute;bottom:calc(100% + 18px);left:50%;transform:translateX(-50%);font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--fg);white-space:nowrap}
+@keyframes mring{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.25);opacity:.45}}
+.mtag{text-align:center;max-width:none}
+.anim .market.in .mdots i{animation:mdot 2.2s var(--ease) both;animation-delay:var(--d)}
+.anim .market.in .mdots i.you{animation:myou 1.4s var(--ease) both 1.4s}
+.anim .market .mdots i.you::after,.anim .market .mdots i.you::before{opacity:0;transition:opacity .6s 2.4s}
+.anim .market.in .mdots i.you::after,.anim .market.in .mdots i.you::before{opacity:1}
+@keyframes mdot{0%{opacity:0;transform:scale(.3)}35%{opacity:.55;transform:none}100%{opacity:.16}}
+@keyframes myou{0%{opacity:.55;background:var(--fg);box-shadow:none;transform:scale(1)}60%{transform:scale(1.7)}}
+.trio{display:grid;gap:28px;margin-top:72px}
+@media (min-width:860px){.trio{grid-template-columns:repeat(3,minmax(0,1fr));gap:40px}}
+.trio article{position:relative;padding-top:24px}
+.trio article::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:var(--acc);transform-origin:left;transition:transform 1s var(--ease) .3s}
+.anim .trio article::before{transform:scaleX(0)}
+.anim .trio article.in::before{transform:none}
+.trio h3{font-size:clamp(22px,2.2vw,30px);letter-spacing:-.03em;line-height:1.15}
+.trio p{color:var(--mute);margin-top:10px;font-size:16px}
+
 /* cursor */
 .cur{position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1px solid #fff;pointer-events:none;z-index:200;mix-blend-mode:difference;display:none;transition:width .3s,height .3s,margin .3s,background-color .3s}
 .cur.hover{width:68px;height:68px;margin:-34px 0 0 -34px;background:#fff}
@@ -903,19 +930,21 @@ footer{padding-top:72px}
 <!-- 8 EXCLUSIVITY + TRUST -->
 <section class="sec" data-tone="light">
   <div class="wrap">
-    <p class="mono label reveal">Selective partnerships</p>
-    <h2 class="oneMarket reveal"><span>One market.</span><span>One growth partner.</span></h2>
-    <div class="split" style="margin-top:48px">
-      <p class="lead reveal">We aim to work with one client in a clearly defined competitive market, so we never sit on both sides of the same customer.</p>
-      <p class="lead reveal">The market boundary is agreed together, by product category, customer segment and geography. It's a commitment to focus and trust, not artificial scarcity.</p>
+    <div class="excl">
+      <div class="excl-copy">
+        <p class="mono label reveal">Exclusive partnership</p>
+        <h2 class="oneMarket reveal"><span>One market.</span><span>One growth partner.</span></h2>
+        <p class="lead reveal" style="margin-top:24px">We partner with one business per market. Your competitor can't hire us to compete with you.</p>
+      </div>
+      <div class="market reveal" aria-hidden="true">
+        <div class="mdots" data-market></div>
+        <p class="mono mtag">Your market · 1 partner</p>
+      </div>
     </div>
-    <div class="princ">
-      <article class="reveal"><h3><small>01</small>Transparency</h3><p>Clear commercial terms, reporting and performance visibility.</p></article>
-      <article class="reveal"><h3><small>02</small>Selectivity</h3><p>We choose businesses where there is a genuine opportunity to create value.</p></article>
-      <article class="reveal"><h3><small>03</small>Accountability</h3><p>We take responsibility for our agreed deliverables and execution.</p></article>
-      <article class="reveal"><h3><small>04</small>Mutual responsibility</h3><p>We run the agreed growth work. You provide product, fulfilment, approvals, data and sales operations.</p></article>
-      <article class="reveal"><h3><small>05</small>Confidentiality</h3><p>Your business information, customer data and commercial details stay protected.</p></article>
-      <article class="reveal"><h3><small>06</small>Long-term thinking</h3><p>Sustainable customer economics over short-term vanity metrics.</p></article>
+    <div class="trio">
+      <article class="reveal"><h3>Your playbook stays yours</h3><p>What we learn inside your business never helps a competitor.</p></article>
+      <article class="reveal"><h3>Our full focus</h3><p>No attention split between rivals. Your market gets our best thinking.</p></article>
+      <article class="reveal"><h3>Our success is tied to yours</h3><p>With one partner per market, the only way we grow there is if you do.</p></article>
     </div>
   </div>
 </section>
@@ -1181,6 +1210,9 @@ footer{padding-top:72px}
   /* ---- approach: fill the cart row and 100-dot grid ---- */
   $$("[data-carts]").forEach(function(d){ for (var i=0;i<10;i++){ var c = document.createElement("i"); if (i<7){ c.className = "gone"; c.style.setProperty("--d", (0.3 + i*0.12) + "s"); } d.appendChild(c); } });
   $$("[data-dots]").forEach(function(d){ for (var i=0;i<100;i++){ var c = document.createElement("i"); if (i===7||i===38||i===71) c.className = "buy"; if (i===52) c.className = "new"; d.appendChild(c); } });
+
+  /* ---- exclusive partnership: fill the market dots ---- */
+  $$("[data-market]").forEach(function(d){ for (var i=0;i<40;i++){ var c = document.createElement("i"); if (i===19) c.className = "you"; c.style.setProperty("--d", (Math.random()*0.7).toFixed(2) + "s"); d.appendChild(c); } });
 
   /* ---- GROWTH SYSTEM diagram ---- */
   var nodes = $$(".node"), stages = $$(".stage"), spokes = $$(".spoke"), bars = $$("#sysTabs i"), tabs = $("#sysTabs");
