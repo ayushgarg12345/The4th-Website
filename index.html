@@ -629,6 +629,13 @@ footer{padding-top:72px}
 .trio h3{font-size:clamp(22px,2.2vw,30px);letter-spacing:-.03em;line-height:1.15}
 .trio p{color:var(--mute);margin-top:10px;font-size:16px}
 
+/* belief statement */
+.belief{font-size:clamp(34px,5.2vw,80px);font-weight:800;letter-spacing:-.045em;line-height:1.05;max-width:20ch;text-wrap:balance}
+.belief span{display:inline-block;transition:opacity .5s var(--ease),transform .8s var(--ease)}
+.anim .belief span{opacity:.15;transform:translate(var(--x),var(--y))}
+.anim .belief span.on{opacity:1;transform:none}
+.belief span.sig{color:var(--acc)}
+
 /* cursor */
 .cur{position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1px solid #fff;pointer-events:none;z-index:200;mix-blend-mode:difference;display:none;transition:width .3s,height .3s,margin .3s,background-color .3s}
 .cur.hover{width:68px;height:68px;margin:-34px 0 0 -34px;background:#fff}
@@ -652,21 +659,20 @@ footer{padding-top:72px}
     <a href="#top" class="wm" aria-label="THE4TH home"><span class="the">THE</span><span class="four">4</span><span>TH</span></a>
     <ul>
       <li><a href="#approach">Approach</a></li>
-      <li><a href="#audit">Free audit</a></li>
+      <li><a href="#apply">Free audit</a></li>
       <li><a href="#partnership">Partnership</a></li>
     </ul>
     <div class="right">
-      <a href="#audit" class="btn lime small magnetic">Free audit <span class="arr">→</span></a>
+      <a href="#apply" class="btn lime small magnetic">Free audit <span class="arr">→</span></a>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
     </div>
   </div>
 </header>
 <nav class="drawer" id="drawer" aria-label="Menu">
   <a href="#approach"><span>01</span>Approach</a>
-  <a href="#audit"><span>02</span>Free growth audit</a>
-  <a href="#fit"><span>03</span>Who we work with</a>
-  <a href="#partnership"><span>04</span>Partnership</a>
-  <a href="#apply"><span>05</span>Become a growth partner</a>
+  <a href="#fit"><span>02</span>Who we work with</a>
+  <a href="#partnership"><span>03</span>Partnership</a>
+  <a href="#apply"><span>04</span>Become a growth partner</a>
 </nav>
 
 <main id="top">
@@ -680,7 +686,7 @@ footer{padding-top:72px}
       <p class="sub fade-up d1">Get a free, in-depth growth audit of your business.</p>
       <p class="lead fade-up d2">Send us your reports. <strong>Within 48 hours</strong> we show you what's really holding your growth back, across ads, website, conversion and retention.</p>
       <div class="ctas fade-up d3">
-        <a href="#audit" class="btn lime magnetic">Get your free growth audit <span class="arr">→</span></a>
+        <a href="#apply" class="btn lime magnetic">Get your free growth audit <span class="arr">→</span></a>
         <a href="#apply" class="btn magnetic">Become a growth partner <span class="arr">→</span></a>
       </div>
       <p class="mono hero-trust fade-up d3">No logins needed · Confidential · No obligation</p>
@@ -826,63 +832,12 @@ footer{padding-top:72px}
       </div>
     </div>
     <p class="mono src reveal">Examples are illustrative. Sources: Baymard Institute (cart abandonment), Bain &amp; Company (customer retention).</p>
-    <p class="bridge reveal"><span>Your free growth audit runs these same four stages on your business.</span><a href="#audit" class="btn lime magnetic">Get your free audit <span class="arr">→</span></a></p>
-  </div>
-</section>
-
-<!-- 4 FREE GROWTH AUDIT -->
-<section class="sec" id="audit" data-tone="light">
-  <div class="wrap">
-    <p class="mono label reveal">Free growth audit</p>
-    <h2 class="h2 reveal">See your business beyond the obvious. In 48 hours.</h2>
-    <p class="lead reveal" style="margin-top:24px">A free, in-depth review of your whole growth system, built on the same four stages we use with our partners. <strong>No logins needed.</strong> Send your reports and we do the rest.</p>
-
-    <ol class="tl reveal">
-      <li><span class="mono">Hour 0</span><b>You send your reports</b><p>Ads, sales and analytics exports. Screenshots are fine.</p></li>
-      <li><span class="mono">Hours 1–40</span><b>We analyse all four stages</b><p>Discover, Acquire, Convert and Compound, one by one.</p></li>
-      <li><span class="mono">Hour 48</span><b>Your audit arrives</b><p>A written report and your Growth Scorecard, in your inbox.</p></li>
-      <li><span class="mono">Then</span><b>Your next best steps</b><p>We show you the moves that will make the biggest difference next.</p></li>
-    </ol>
-
-    <div class="audit-form">
-      <div class="reveal">
-        <p class="mono label">Request your audit</p>
-        <h3>Start with the free audit.</h3>
-        <p class="lead" style="margin-top:18px;font-size:18px">Tell us about your brand. We'll confirm within one working day and tell you exactly which reports to send.</p>
-        <ul class="trust">
-          <li>Your data stays confidential. NDA on request.</li>
-          <li>No obligation. Keep the audit whether or not we work together.</li>
-          <li>We take on a limited number of audits each week.</li>
-        </ul>
-      </div>
-      <form class="app reveal" id="auditForm" novalidate>
-        <div class="fstep"><span class="mono">Free growth audit</span><span class="mono">48-hour turnaround</span></div>
-        <div class="frow">
-          <div class="field"><label for="au-name">Your name</label><input id="au-name" name="name" autocomplete="name" required></div>
-          <div class="field"><label for="au-email">Work email</label><input id="au-email" name="email" type="email" autocomplete="email" required></div>
-        </div>
-        <div class="frow">
-          <div class="field"><label for="au-company">Brand / company</label><input id="au-company" name="company" autocomplete="organization" required></div>
-          <div class="field"><label for="au-site">Website</label><input id="au-site" name="website" type="url" placeholder="https://" autocomplete="url"></div>
-        </div>
-        <div class="frow">
-          <div class="field"><label for="au-rev">Monthly revenue</label>
-            <select id="au-rev" name="revenue"><option value="">Select</option><option>Under ₹10 lakh</option><option>₹10–50 lakh</option><option>₹50 lakh – ₹2 crore</option><option>Over ₹2 crore</option><option>Prefer to discuss</option></select></div>
-          <div class="field"><label for="au-where">Where you sell</label>
-            <select id="au-where" name="channels"><option value="">Select</option><option>Own website</option><option>Marketplaces</option><option>Website + marketplaces</option></select></div>
-        </div>
-        <div class="field"><label for="au-first">What should we look at first?</label><textarea id="au-first" name="focus" placeholder="e.g. Ads are getting expensive and sales have stalled"></textarea></div>
-        <div class="form-foot">
-          <span class="form-note" id="auditNote" role="status">Free. No logins needed.</span>
-          <button type="submit" class="btn lime magnetic">Request free audit <span class="arr">→</span></button>
-        </div>
-      </form>
-    </div>
+    <p class="bridge reveal"><span>Your free growth audit runs these same four stages on your business.</span><a href="#apply" class="btn lime magnetic">Get your free audit <span class="arr">→</span></a></p>
   </div>
 </section>
 
 <!-- 5 CAPABILITIES -->
-<section class="sec" data-tone="dark">
+<section class="sec same" data-tone="dark">
   <div class="wrap">
     <p class="mono label reveal">What we build</p>
     <h2 class="h2 reveal">Capabilities inside one system.</h2>
@@ -967,15 +922,7 @@ footer{padding-top:72px}
 <section class="sec" data-tone="dark">
   <div class="wrap">
     <p class="mono label reveal">What we believe</p>
-    <h2 class="h2 reveal">Look beyond what is visible. Understand what drives it.</h2>
-    <p class="lead reveal" style="margin-top:28px">Inspired by the philosophy of Turiya, THE4TH approaches growth from a different perspective. We look beyond individual channels and marketing activities to understand the business as <strong>one interconnected system.</strong></p>
-    <div class="layers">
-      <div class="layer reveal"><span class="mono">Layer 1</span><div><h3>The obvious</h3><p>Running advertisements.</p></div></div>
-      <div class="layer reveal"><span class="mono">Layer 2</span><div><h3>Beyond the obvious</h3><p>Understanding why customers buy.</p></div></div>
-      <div class="layer reveal"><span class="mono">Layer 3</span><div><h3>The deeper system</h3><p>Connecting product, positioning, acquisition, conversion and retention.</p></div></div>
-      <div class="layer fourth reveal"><span class="mono">The 4th</span><div><h3>The fourth perspective</h3><p>Seeing the business as one growth system rather than a collection of marketing activities.</p></div></div>
-    </div>
-    <p class="lead reveal" style="margin-top:56px;font-size:clamp(22px,2.6vw,34px);font-weight:600;letter-spacing:-.03em;color:var(--fg);max-width:30ch;line-height:1.2">Growth is rarely limited by one marketing activity. It is determined by how everything works together.</p>
+    <p class="belief" data-belief>Growth is rarely limited by one marketing activity. It is determined by how everything works together.</p>
   </div>
 </section>
 
@@ -1032,8 +979,8 @@ footer{padding-top:72px}
   <div class="wrap">
     <div class="foot-top">
       <div><h3>Beyond the obvious.</h3><p class="lead" style="margin-top:14px;font-size:16px">A growth partner for ambitious businesses, built on the philosophy of Turiya.</p></div>
-      <div><p class="mono">Explore</p><ul><li><a href="#approach">Approach</a></li><li><a href="#audit">Free growth audit</a></li><li><a href="#fit">Who we work with</a></li><li><a href="#partnership">Partnership model</a></li></ul></div>
-      <div><p class="mono">Start</p><ul><li><a href="#apply">Become a growth partner</a></li><li><a href="#audit">Request a free audit</a></li></ul></div>
+      <div><p class="mono">Explore</p><ul><li><a href="#approach">Approach</a></li><li><a href="#apply">Free growth audit</a></li><li><a href="#fit">Who we work with</a></li><li><a href="#partnership">Partnership model</a></li></ul></div>
+      <div><p class="mono">Start</p><ul><li><a href="#apply">Become a growth partner</a></li><li><a href="#apply">Request a free audit</a></li></ul></div>
     </div>
     <div class="foot-mark wm" aria-hidden="true"><span class="the">THE</span><span class="four">4</span><span>TH</span></div>
     <div class="foot-bot"><span class="mono">© <span id="yr">2026</span> THE4TH · India</span><span class="mono">Discover → Acquire → Convert → Compound</span></div>
@@ -1214,6 +1161,16 @@ footer{padding-top:72px}
   /* ---- exclusive partnership: fill the market dots ---- */
   $$("[data-market]").forEach(function(d){ for (var i=0;i<40;i++){ var c = document.createElement("i"); if (i===19) c.className = "you"; c.style.setProperty("--d", (Math.random()*0.7).toFixed(2) + "s"); d.appendChild(c); } });
 
+  /* ---- belief statement: words settle into place as you scroll ---- */
+  var belief = $("[data-belief]");
+  if (belief){
+    var bw = belief.textContent.trim().split(/\s+/), sigFrom = bw.indexOf("how");
+    belief.innerHTML = bw.map(function(w,i){ var x = Math.round(Math.random()*40-20), y = Math.round(Math.random()*30-15); return '<span class="' + (sigFrom > -1 && i >= sigFrom ? "sig" : "") + '" style="--x:' + x + 'px;--y:' + y + 'px">' + w + '</span>'; }).join(" ");
+    var bspans = Array.prototype.slice.call(belief.querySelectorAll("span"));
+    var onBelief = function(){ var r = belief.getBoundingClientRect(); var p = (innerHeight*0.85 - r.top)/(r.height + innerHeight*0.3); var n = Math.floor(Math.max(0, Math.min(1, p)) * bspans.length * 1.15); bspans.forEach(function(sp,i){ sp.classList.toggle("on", i < n); }); };
+    addEventListener("scroll", onBelief, {passive:true}); onBelief();
+  }
+
   /* ---- GROWTH SYSTEM diagram ---- */
   var nodes = $$(".node"), stages = $$(".stage"), spokes = $$(".spoke"), bars = $$("#sysTabs i"), tabs = $("#sysTabs");
   var active = 0, CYCLE = 12000, userPicked = false, lastSwitch = performance.now(), diagVisible = false;
@@ -1276,7 +1233,7 @@ footer{padding-top:72px}
   fields.forEach(function(f){ f.addEventListener("input", progress); f.addEventListener("change", progress) }); progress();
   form.addEventListener("submit", function(e){ e.preventDefault(); send(form, $("#formNote"), "Partner application: ", "Application received. We'll be in touch after we've read it.", progress); });
   var aform = $("#auditForm");
-  aform.addEventListener("submit", function(e){ e.preventDefault(); send(aform, $("#auditNote"), "Free growth audit request: ", "Request received. We'll confirm within one working day and tell you which reports to send.", null); });
+  if (aform) aform.addEventListener("submit", function(e){ e.preventDefault(); send(aform, $("#auditNote"), "Free growth audit request: ", "Request received. We'll confirm within one working day and tell you which reports to send.", null); });
 })();
 </script>
 
