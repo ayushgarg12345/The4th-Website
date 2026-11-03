@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#121513">
 <meta property="og:title" content="THE4TH — Beyond the Obvious.">
-<meta property="og:description" content="Get a free, in-depth growth audit of your business within 48 hours.">
+<meta property="og:description" content="Get a free, in-depth growth audit of your business within 24–48 hours.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://the4th.in/">
 <link rel="canonical" href="https://the4th.in/">
@@ -649,6 +649,49 @@ footer{padding-top:72px}
 #partnership .together .legend{justify-content:center}
 #partnership .model2{max-width:960px;margin-inline:auto;text-align:left}
 
+/* hero: audit report card */
+.acard{position:relative;overflow:hidden;width:100%;max-width:400px;margin-top:40px;padding:22px;border:1px solid var(--line);border-radius:20px;background:color-mix(in srgb,var(--raise) 82%,transparent);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:grid;gap:14px}
+.acard-hd{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.acard-live{display:inline-flex;align-items:center;gap:8px;color:var(--lime)}
+.acard-live::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lime);animation:autoblink 1.4s infinite}
+.acard-title{font-size:24px;font-weight:800;letter-spacing:-.035em;line-height:1.1}
+.acard-list{list-style:none;margin:0;padding:0;display:grid}
+.acard-list li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:11px;border-top:1px solid var(--line);font-size:15px;font-weight:500}
+.acard-list li b{font-family:var(--f-mono);font-size:12px;font-weight:500;color:var(--fg);animation:acshow 8s infinite both}
+.acard-list li:nth-child(1) b{animation-delay:1s}
+.acard-list li:nth-child(2) b{animation-delay:2s}
+.acard-list li:nth-child(3) b{animation-delay:3s}
+.acard-list li:nth-child(4) b{animation-delay:4s}
+.acard-list li.warn,.acard-list li.warn b{color:var(--lime)}
+.acard-ft{display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border-radius:12px;background:var(--lime);animation:acshow 8s infinite both 5s}
+.acard-ft .mono{color:var(--charcoal)}
+.acard-scan{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--lime),transparent);box-shadow:0 0 18px var(--lime);top:96px;opacity:0;animation:acscan 8s infinite .6s}
+@keyframes acshow{0%{opacity:0;transform:translateX(-6px)}6%,85%{opacity:1;transform:none}95%,100%{opacity:0}}
+@keyframes acscan{0%{top:96px;opacity:0}5%{opacity:1}55%{top:calc(100% - 70px);opacity:1}62%,100%{top:calc(100% - 70px);opacity:0}}
+@keyframes autoblink{50%{opacity:.25}}
+@media (min-width:1100px){
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 360px;column-gap:56px;align-items:center}
+  .hero-copy,.hero-facts{grid-column:1}
+  .acard{grid-column:2;grid-row:1 / span 2;margin-top:0}
+  .hero h1{font-size:clamp(64px,7.4vw,124px)}
+}
+@media (max-width:480px){.hero-facts dt{font-size:24px}}
+
+/* what we build */
+.builds{display:grid;gap:16px;margin-top:56px}
+@media (min-width:700px){.builds{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){.builds{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.bld{border:1px solid var(--line);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px;transition:border-color .4s,transform .5s var(--ease)}
+.bld:hover{border-color:var(--fg);transform:translateY(-4px)}
+.bld-top{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:24px}
+.bld .stage-tag{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+.bld .auto{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--lime);color:var(--charcoal);padding:4px 9px;border-radius:999px}
+.bld .auto::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--charcoal);animation:autoblink 1.6s infinite}
+.bld h3{font-size:clamp(20px,1.9vw,24px);letter-spacing:-.025em;line-height:1.25}
+.bld p{color:var(--mute);font-size:15px;margin-top:auto}
+.bld p b{color:var(--fg)}
+.builds-close{margin-top:40px;font-size:clamp(22px,2.4vw,32px);font-weight:700;letter-spacing:-.03em;max-width:none}
+
 /* cursor */
 .cur{position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1px solid #fff;pointer-events:none;z-index:200;mix-blend-mode:difference;display:none;transition:width .3s,height .3s,margin .3s,background-color .3s}
 .cur.hover{width:68px;height:68px;margin:-34px 0 0 -34px;background:#fff}
@@ -697,17 +740,29 @@ footer{padding-top:72px}
     <div class="hero-copy">
       <h1><span class="ln"><span>Beyond the</span></span><span class="ln"><span>obvious<span class="dot">.</span></span></span></h1>
       <p class="sub fade-up d1">Get a free, in-depth growth audit of your business.</p>
-      <p class="lead fade-up d2">Send us your reports. <strong>Within 48 hours</strong> we show you what's really holding your growth back, across ads, website, conversion and retention.</p>
+      <p class="lead fade-up d2">Send us your reports. <strong>Within 24–48 hours</strong> we show you what's really holding your growth back, across ads, website, conversion and retention.</p>
       <div class="ctas fade-up d3">
         <a href="#apply" class="btn lime magnetic">Get your free growth audit <span class="arr">→</span></a>
         <a href="#apply" class="btn magnetic">Become a growth partner <span class="arr">→</span></a>
       </div>
-      <p class="mono hero-trust fade-up d3">No logins needed · Confidential · No obligation</p>
+      <p class="mono hero-trust fade-up d3">No logins needed · Confidential · No commitment</p>
+    </div>
+        <div class="acard fade-up d2" aria-hidden="true">
+      <div class="acard-hd"><span class="mono">Growth audit</span><span class="mono acard-live">Scanning</span></div>
+      <p class="acard-title">Your business</p>
+      <ul class="acard-list">
+        <li><span>Ads &amp; acquisition</span><b>✓</b></li>
+        <li><span>Website</span><b>✓</b></li>
+        <li class="warn"><span>Conversion</span><b>Leak found</b></li>
+        <li><span>Retention</span><b>✓</b></li>
+      </ul>
+      <div class="acard-ft"><span class="mono">Report ready</span><span class="mono">24–48 hrs</span></div>
+      <i class="acard-scan"></i>
     </div>
     <dl class="hero-facts fade-up d3">
-      <div><dt>48 hrs</dt><dd>From your reports to your audit</dd></div>
-      <div><dt>4 stages</dt><dd>Each scored out of 10</dd></div>
-      <div><dt>₹0</dt><dd>Free, with no obligation</dd></div>
+      <div><dt>24–48 hrs</dt><dd>From your reports to your audit</dd></div>
+      <div><dt>In-depth</dt><dd>A full report and analysis of what's holding growth back</dd></div>
+      <div><dt>₹0</dt><dd>Free, no strings attached</dd></div>
     </dl>
   </div>
 </section>
@@ -753,7 +808,7 @@ footer{padding-top:72px}
 <!-- 3 OUR APPROACH (GROWTH SYSTEM) -->
 <section class="sec" id="approach" data-tone="dark">
   <div class="wrap">
-    <p class="mono label reveal">Our approach · The THE4TH Growth System</p>
+    <p class="mono label reveal">Our approach</p>
     <h2 class="h2 reveal">Four stages. One connected growth system.</h2>
     <p class="lead reveal" style="margin-top:24px">Most growth problems get diagnosed in the wrong place. Rising ad costs are often a conversion problem. Flat sales are often a retention problem. We work through four stages in order, so we fix the cause, not the symptom. Select a stage to see inside it.</p>
     <div class="sys">
@@ -860,15 +915,14 @@ footer{padding-top:72px}
         </div>
       </div>
     </div>
-    <p class="mono src reveal">Examples are illustrative. Sources: Baymard Institute (cart abandonment), Bain &amp; Company (customer retention).</p>
-    <p class="bridge reveal"><span>Your free growth audit runs these same four stages on your business.</span><a href="#apply" class="btn lime magnetic">Get your free audit <span class="arr">→</span></a></p>
+        <p class="bridge reveal"><span>Your free growth audit runs these same four stages on your business.</span><a href="#apply" class="btn lime magnetic">Get your free audit <span class="arr">→</span></a></p>
   </div>
 </section>
 
 <!-- 7 PARTNERSHIP -->
 <section class="sec same" id="partnership" data-tone="dark">
   <div class="wrap">
-    <p class="mono label reveal">The partnership model</p>
+    <p class="mono label reveal">How we're different</p>
     <h2 class="h2 reveal">We grow when you grow.</h2>
     <p class="lead reveal" style="margin-top:24px">You don't need another agency. You need a partner with real skin in the game.</p>
     <div class="together reveal">
@@ -900,9 +954,9 @@ footer{padding-top:72px}
   <div class="wrap">
     <div class="excl">
       <div class="excl-copy">
-        <p class="mono label reveal">Exclusive partnership</p>
+        <p class="mono label reveal">Exclusive by design</p>
         <h2 class="oneMarket reveal"><span>One market.</span><span>One growth partner.</span></h2>
-        <p class="lead reveal" style="margin-top:24px">We partner with one business per market. Your competitor can't hire us to compete with you.</p>
+        <p class="lead reveal" style="margin-top:24px">Once we partner with you, your competitors can't hire us. Your growth is the only growth we're building in your market.</p>
       </div>
       <div class="market reveal" aria-hidden="true">
         <div class="mdots" data-market></div>
@@ -921,15 +975,17 @@ footer{padding-top:72px}
 <section class="sec" data-tone="dark">
   <div class="wrap">
     <p class="mono label reveal">What we build</p>
-    <h2 class="h2 reveal">Capabilities inside one system.</h2>
-    <p class="lead reveal" style="margin-top:24px">We don't sell packages. Each capability exists to move one business objective, and we only use what your constraint calls for.</p>
-    <div class="caps">
-      <article class="cap reveal"><div class="top"><span class="stage-tag">Discover</span><span class="mono">01</span></div><h3>Strategy &amp; intelligence</h3><p class="goal">So you know where growth is actually stuck.</p><ul><li>Market research</li><li>Customer research</li><li>Segmentation</li><li>Positioning</li><li>Growth strategy</li><li>Offer development</li></ul></article>
-      <article class="cap reveal"><div class="top"><span class="stage-tag">Acquire</span><span class="mono">02</span></div><h3>Acquisition</h3><p class="goal">So new customers cost less to win.</p><ul><li>Meta Ads</li><li>Google Ads</li><li>SEO</li><li>Content</li><li>Creative strategy</li><li>Paid media optimisation</li></ul></article>
-      <article class="cap reveal"><div class="top"><span class="stage-tag">Convert</span><span class="mono">03</span></div><h3>Conversion</h3><p class="goal">So more visitors become buyers.</p><ul><li>Landing pages</li><li>CRO</li><li>Customer journey</li><li>Retargeting</li><li>E-commerce funnels</li></ul></article>
-      <article class="cap reveal"><div class="top"><span class="stage-tag">Compound</span><span class="mono">04</span></div><h3>Retention</h3><p class="goal">So each customer is worth more over time.</p><ul><li>Email</li><li>CRM</li><li>WhatsApp</li><li>Lifecycle automation</li><li>Repeat-purchase programmes</li></ul></article>
-      <article class="cap reveal"><div class="top"><span class="stage-tag">Across all four</span><span class="mono">05</span></div><h3>Intelligence &amp; measurement</h3><p class="goal">So every decision rests on numbers you can see.</p><ul><li>Analytics</li><li>Attribution</li><li>Performance dashboards</li><li>CAC analysis</li><li>Revenue &amp; contribution tracking</li></ul></article>
+    <h2 class="h2 reveal">We build the systems, so you don't have to run them.</h2>
+    <p class="lead reveal" style="margin-top:24px">Most founders end up as their own marketing department: checking dashboards late at night, chasing leads on WhatsApp, guessing which numbers matter. We build the systems and automations that take that work off your plate.</p>
+    <div class="builds">
+      <article class="bld reveal"><div class="bld-top"><span class="stage-tag">Discover</span></div><h3>"I'm not sure who my best customer is."</h3><p><b>We build</b> customer research and positioning that tell you exactly who to target and what to say.</p></article>
+      <article class="bld reveal"><div class="bld-top"><span class="stage-tag">Acquire</span><span class="auto">Automated</span></div><h3>"My ads need babysitting every day."</h3><p><b>We build</b> ad systems with automated rules: budget moves to what's working, and new creatives are tested every week.</p></article>
+      <article class="bld reveal"><div class="bld-top"><span class="stage-tag">Convert</span></div><h3>"My website looks fine but doesn't sell."</h3><p><b>We build</b> landing pages and checkouts designed to convert, tested and improved every month.</p></article>
+      <article class="bld reveal"><div class="bld-top"><span class="stage-tag">Convert</span><span class="auto">Automated</span></div><h3>"Leads slip through the cracks."</h3><p><b>We build</b> follow-ups that run themselves: every enquiry gets a WhatsApp or email reply in minutes, and every abandoned cart gets a reminder.</p></article>
+      <article class="bld reveal"><div class="bld-top"><span class="stage-tag">Compound</span><span class="auto">Automated</span></div><h3>"Customers buy once and disappear."</h3><p><b>We build</b> journeys that run on their own: thank-yous, review requests, reorder reminders and win-back offers.</p></article>
+      <article class="bld reveal"><div class="bld-top"><span class="stage-tag">All four stages</span><span class="auto">Automated</span></div><h3>"I don't know which numbers to trust."</h3><p><b>We build</b> one live dashboard with your ads, sales and profit in one place, updated automatically.</p></article>
     </div>
+    <p class="builds-close reveal">One partner. One connected system. Less on your plate.</p>
   </div>
 </section>
 
@@ -958,19 +1014,19 @@ footer{padding-top:72px}
 <section class="sec apply" id="apply" data-tone="light">
   <div class="wrap">
     <div>
-      <p class="mono label reveal">Get started</p>
+      <p class="mono label reveal">Let's build together</p>
       <h2 class="reveal">Have something worth growing?</h2>
-      <p class="lead reveal" style="margin-top:20px">Start with a free 48-hour growth audit, or apply to become a growth partner. We reply within one working day.</p>
+      <p class="lead reveal" style="margin-top:20px">Start with a free growth audit, ready in 24–48 hours, or apply to become a growth partner. We reply within one working day.</p>
       <ol class="next-steps reveal">
         <li><span>01</span><div><b>Tell us about your business</b><p>Two minutes. No logins or reports needed yet.</p></div></li>
         <li><span>02</span><div><b>We reply within one working day</b><p>With clear next steps, or honest feedback if we're not the right fit.</p></div></li>
-        <li><span>03</span><div><b>Your audit or discovery call</b><p>Clear findings. No obligation.</p></div></li>
+        <li><span>03</span><div><b>Your audit or discovery call</b><p>Clear findings. No commitment.</p></div></li>
       </ol>
       <p class="mono" style="margin-top:28px">Prefer email?</p>
       <a class="email" id="emailLink" href="mailto:hello@the4th.in">hello@the4th.in</a>
     </div>
     <form class="app reveal" id="appForm" novalidate>
-      <div class="fstep"><span class="mono">Get started</span><span class="bar"><i id="fbar"></i></span><span class="mono" id="fcount">0/7</span></div>
+      <div class="fstep"><span class="mono">Let's build together</span><span class="bar"><i id="fbar"></i></span><span class="mono" id="fcount">0/7</span></div>
       <div class="field"><label for="a-want">I'd like</label>
         <select id="a-want" name="interest"><option>A free growth audit</option><option>To become a growth partner</option></select></div>
       <div class="frow">
@@ -985,8 +1041,8 @@ footer{padding-top:72px}
         <select id="a-rev" name="revenue"><option value="">Select</option><option>Under ₹10 lakh</option><option>₹10–50 lakh</option><option>₹50 lakh – ₹2 crore</option><option>Over ₹2 crore</option><option>Prefer to discuss</option></select></div>
       <div class="field"><label for="a-chal">Your biggest growth challenge</label><textarea id="a-chal" name="challenge" placeholder="e.g. Ads are getting expensive and sales have stalled"></textarea></div>
       <div class="form-foot">
-        <span class="form-note" id="formNote" role="status">Free. Confidential. No obligation.</span>
-        <button type="submit" class="btn lime magnetic">Get started <span class="arr">→</span></button>
+        <span class="form-note" id="formNote" role="status">Free. Confidential. No commitment.</span>
+        <button type="submit" class="btn lime magnetic">Let's talk <span class="arr">→</span></button>
       </div>
     </form>
   </div>
