@@ -636,6 +636,19 @@ footer{padding-top:72px}
 .anim .belief span.on{opacity:1;transform:none}
 .belief span.sig{color:var(--acc)}
 
+/* approach: easy-read points */
+.stage .pts{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.stage .pts li{position:relative;padding-left:22px;font-size:16px;line-height:1.55;color:var(--fg)}
+.stage .pts li::before{content:"";position:absolute;left:0;top:.7em;width:10px;height:2px;background:var(--acc)}
+
+/* partnership: centred layout */
+#partnership .wrap{text-align:center}
+#partnership .label{justify-content:center;max-width:none}
+#partnership .lead{margin-inline:auto}
+#partnership .together{max-width:960px;margin-inline:auto}
+#partnership .together .legend{justify-content:center}
+#partnership .model2{max-width:960px;margin-inline:auto;text-align:left}
+
 /* cursor */
 .cur{position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1px solid #fff;pointer-events:none;z-index:200;mix-blend-mode:difference;display:none;transition:width .3s,height .3s,margin .3s,background-color .3s}
 .cur.hover{width:68px;height:68px;margin:-34px 0 0 -34px;background:#fff}
@@ -776,7 +789,11 @@ footer{padding-top:72px}
                 <div class="fr"><span>300 add to cart</span><span class="bar" style="--w:62%"><i></i></span></div>
                 <div class="fr leak"><span>90 buy</span><span class="bar" style="--w:34%"><i></i><b></b><b></b><b></b></span><em>The leak</em></div>
               </div>
-              <p>Picture a common funnel: <b class="hl">10,000 people visit, 300 add to cart, 90 buy.</b> Most businesses respond by buying more visitors. But if the weak step is the <b class="hl">300 → 90</b>, doubling traffic also doubles the leak. Fixing the weakest step lifts every number after it.</p>
+              <ul class="pts">
+                <li><b class="hl">10,000</b> people visit, <b class="hl">300</b> add to cart, only <b class="hl">90</b> buy.</li>
+                <li>The biggest leak is between cart and purchase.</li>
+                <li>More traffic won't fix it. Fixing the leak will.</li>
+              </ul>
             </div>
             <div class="blk"><span class="mono">What we do</span><p>Before touching a single campaign, we find that one constraint and build the plan around it.</p></div>
             <p class="next">Feeds into → Acquire</p>
@@ -791,7 +808,11 @@ footer{padding-top:72px}
                 <div class="card dash"><span class="mono">Your ads dashboard</span><strong>3× ROAS</strong><small>₹2,400 order from ₹800 of ads</small></div>
                 <div class="card bank"><span class="mono">Your bank account</span><strong>−₹200</strong><small>₹600 profit − ₹800 ad cost</small></div>
               </div>
-              <p>Say a new customer costs you <b class="hl">₹800</b> in ads and places a <b class="hl">₹2,400</b> order. The dashboard proudly shows <b class="hl">3× ROAS</b>. But after product cost, shipping, fees and returns, that order may leave only <b class="hl">₹600</b> of profit, so every "successful" sale <b class="hl">loses ₹200</b>. A good-looking ROAS can still be losing you money.</p>
+              <ul class="pts">
+                <li>Dashboard: <b class="hl">₹800</b> of ads brought a <b class="hl">₹2,400</b> order, so <b class="hl">3× ROAS</b>.</li>
+                <li>Bank: that order leaves <b class="hl">₹600</b> profit, minus <b class="hl">₹800</b> ad cost.</li>
+                <li>Result: you lose <b class="hl">₹200</b> on every "successful" sale.</li>
+              </ul>
             </div>
             <div class="blk"><span class="mono">What we do</span><p>We judge every channel by what a customer costs against what they're actually worth, cut what doesn't pay back, and scale what does.</p></div>
             <p class="next">Feeds into → Convert</p>
@@ -806,7 +827,11 @@ footer{padding-top:72px}
                 <div class="vrow"><span class="carts" data-carts></span><small>7 in 10 carts abandoned</small></div>
                 <div class="vrow"><span class="dots" data-dots></span><small><span class="plus">+33%</span>3 buyers in 100, then 4</small></div>
               </div>
-              <p>About <b class="hl">7 in 10</b> online shopping carts are abandoned before payment, according to Baymard Institute's research. And the maths of fixing it is powerful: if <b class="hl">3 in 100</b> visitors buy today, getting just <b class="hl">1 more</b> to buy grows sales by <b class="hl">33%</b>, without spending a rupee more on ads.</p>
+              <ul class="pts">
+                <li><b class="hl">7 in 10</b> people who add to cart never pay (Baymard Institute).</li>
+                <li>If <b class="hl">3 in 100</b> visitors buy, getting <b class="hl">1 more</b> to buy means <b class="hl">33%</b> more sales.</li>
+                <li>Same traffic. Same ad spend.</li>
+              </ul>
             </div>
             <div class="blk"><span class="mono">What we do</span><p>We find exactly where interested people drop off, and remove the reasons they leave.</p></div>
             <p class="next">Feeds into → Compound</p>
@@ -823,7 +848,11 @@ footer{padding-top:72px}
                 <div class="col"><i style="--h:36px"></i><b>+₹400</b><span>2 orders</span></div>
                 <div class="col"><i style="--h:90px"></i><b>+₹1,000</b><span>3 orders</span></div>
               </div>
-              <p>Take the customer from Stage 02: <b class="hl">₹800</b> to win, <b class="hl">₹600</b> profit per order. Buy once, and you've <b class="hl">lost ₹200</b>. Buy three times, and you've <b class="hl">made ₹1,000</b> from the same ₹800. Research by Bain &amp; Company found that a <b class="hl">5% increase in customer retention can lift profits by 25% to 95%</b>.</p>
+              <ul class="pts">
+                <li>1 order: you lose <b class="hl">₹200</b> (₹600 profit − ₹800 ad cost).</li>
+                <li>2 orders: <b class="hl">+₹400</b>. 3 orders: <b class="hl">+₹1,000</b>.</li>
+                <li>Keeping just <b class="hl">5%</b> more customers can lift profits by <b class="hl">25–95%</b> (Bain &amp; Company).</li>
+              </ul>
             </div>
             <div class="blk"><span class="mono">What we do</span><p>We build the follow-ups, journeys and reasons to return, so every month starts from a stronger base than the last.</p></div>
             <p class="next">What we learn here flows back into Discover.</p>
@@ -833,22 +862,6 @@ footer{padding-top:72px}
     </div>
     <p class="mono src reveal">Examples are illustrative. Sources: Baymard Institute (cart abandonment), Bain &amp; Company (customer retention).</p>
     <p class="bridge reveal"><span>Your free growth audit runs these same four stages on your business.</span><a href="#apply" class="btn lime magnetic">Get your free audit <span class="arr">→</span></a></p>
-  </div>
-</section>
-
-<!-- 5 CAPABILITIES -->
-<section class="sec same" data-tone="dark">
-  <div class="wrap">
-    <p class="mono label reveal">What we build</p>
-    <h2 class="h2 reveal">Capabilities inside one system.</h2>
-    <p class="lead reveal" style="margin-top:24px">We don't sell packages. Each capability exists to move one business objective, and we only use what your constraint calls for.</p>
-    <div class="caps">
-      <article class="cap reveal"><div class="top"><span class="stage-tag">Discover</span><span class="mono">01</span></div><h3>Strategy &amp; intelligence</h3><p class="goal">So you know where growth is actually stuck.</p><ul><li>Market research</li><li>Customer research</li><li>Segmentation</li><li>Positioning</li><li>Growth strategy</li><li>Offer development</li></ul></article>
-      <article class="cap reveal"><div class="top"><span class="stage-tag">Acquire</span><span class="mono">02</span></div><h3>Acquisition</h3><p class="goal">So new customers cost less to win.</p><ul><li>Meta Ads</li><li>Google Ads</li><li>SEO</li><li>Content</li><li>Creative strategy</li><li>Paid media optimisation</li></ul></article>
-      <article class="cap reveal"><div class="top"><span class="stage-tag">Convert</span><span class="mono">03</span></div><h3>Conversion</h3><p class="goal">So more visitors become buyers.</p><ul><li>Landing pages</li><li>CRO</li><li>Customer journey</li><li>Retargeting</li><li>E-commerce funnels</li></ul></article>
-      <article class="cap reveal"><div class="top"><span class="stage-tag">Compound</span><span class="mono">04</span></div><h3>Retention</h3><p class="goal">So each customer is worth more over time.</p><ul><li>Email</li><li>CRM</li><li>WhatsApp</li><li>Lifecycle automation</li><li>Repeat-purchase programmes</li></ul></article>
-      <article class="cap reveal"><div class="top"><span class="stage-tag">Across all four</span><span class="mono">05</span></div><h3>Intelligence &amp; measurement</h3><p class="goal">So every decision rests on numbers you can see.</p><ul><li>Analytics</li><li>Attribution</li><li>Performance dashboards</li><li>CAC analysis</li><li>Revenue &amp; contribution tracking</li></ul></article>
-    </div>
   </div>
 </section>
 
@@ -904,16 +917,31 @@ footer{padding-top:72px}
   </div>
 </section>
 
-<!-- 9 PROOF -->
-<section class="sec same" data-tone="light">
+<!-- 5 CAPABILITIES -->
+<section class="sec" data-tone="dark">
   <div class="wrap">
-    <p class="mono label reveal">Proof</p>
-    <h2 class="h2 reveal">Proof, as it's earned.</h2>
-    <p class="lead reveal" style="margin-top:24px">THE4TH is a new company. Rather than borrowed logos or invented numbers, this space fills with verified work as our partnerships produce it.</p>
+    <p class="mono label reveal">What we build</p>
+    <h2 class="h2 reveal">Capabilities inside one system.</h2>
+    <p class="lead reveal" style="margin-top:24px">We don't sell packages. Each capability exists to move one business objective, and we only use what your constraint calls for.</p>
+    <div class="caps">
+      <article class="cap reveal"><div class="top"><span class="stage-tag">Discover</span><span class="mono">01</span></div><h3>Strategy &amp; intelligence</h3><p class="goal">So you know where growth is actually stuck.</p><ul><li>Market research</li><li>Customer research</li><li>Segmentation</li><li>Positioning</li><li>Growth strategy</li><li>Offer development</li></ul></article>
+      <article class="cap reveal"><div class="top"><span class="stage-tag">Acquire</span><span class="mono">02</span></div><h3>Acquisition</h3><p class="goal">So new customers cost less to win.</p><ul><li>Meta Ads</li><li>Google Ads</li><li>SEO</li><li>Content</li><li>Creative strategy</li><li>Paid media optimisation</li></ul></article>
+      <article class="cap reveal"><div class="top"><span class="stage-tag">Convert</span><span class="mono">03</span></div><h3>Conversion</h3><p class="goal">So more visitors become buyers.</p><ul><li>Landing pages</li><li>CRO</li><li>Customer journey</li><li>Retargeting</li><li>E-commerce funnels</li></ul></article>
+      <article class="cap reveal"><div class="top"><span class="stage-tag">Compound</span><span class="mono">04</span></div><h3>Retention</h3><p class="goal">So each customer is worth more over time.</p><ul><li>Email</li><li>CRM</li><li>WhatsApp</li><li>Lifecycle automation</li><li>Repeat-purchase programmes</li></ul></article>
+      <article class="cap reveal"><div class="top"><span class="stage-tag">Across all four</span><span class="mono">05</span></div><h3>Intelligence &amp; measurement</h3><p class="goal">So every decision rests on numbers you can see.</p><ul><li>Analytics</li><li>Attribution</li><li>Performance dashboards</li><li>CAC analysis</li><li>Revenue &amp; contribution tracking</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<!-- 9 PROOF -->
+<section class="sec" data-tone="light">
+  <div class="wrap">
+    <p class="mono label reveal">Our work</p>
+    <h2 class="h2 reveal">Brands we're growing.</h2>
     <div class="proof">
-      <article class="ph reveal"><span class="badge">Placeholder</span><p class="mono">Case study</p><h3>Verified client results</h3><p>Added once a partner's results are measured and they agree to publish.</p></article>
-      <article class="ph reveal"><span class="badge">Placeholder</span><p class="mono">Sample audit</p><h3>A growth audit, start to finish</h3><p>A worked example of how we diagnose a brand's growth constraint.</p></article>
-      <article class="ph reveal"><span class="badge">Placeholder</span><p class="mono">Insights</p><h3>Acquisition, conversion and retention notes</h3><p>Market analysis and research from our own work.</p></article>
+      <article class="ph reveal" aria-hidden="true"></article>
+      <article class="ph reveal" aria-hidden="true"></article>
+      <article class="ph reveal" aria-hidden="true"></article>
     </div>
   </div>
 </section>
@@ -930,20 +958,21 @@ footer{padding-top:72px}
 <section class="sec apply" id="apply" data-tone="light">
   <div class="wrap">
     <div>
-      <p class="mono label reveal">Apply to partner</p>
+      <p class="mono label reveal">Get started</p>
       <h2 class="reveal">Have something worth growing?</h2>
-      <p class="lead reveal" style="margin-top:24px">Let's understand the opportunity beyond the obvious.</p>
+      <p class="lead reveal" style="margin-top:20px">Start with a free 48-hour growth audit, or apply to become a growth partner. We reply within one working day.</p>
       <ol class="next-steps reveal">
-        <li><span>01</span><div><b>We read your application</b><p>Personally, to see if there's a genuine fit.</p></div></li>
-        <li><span>02</span><div><b>Discovery conversation</b><p>If there's a fit, a call to understand the business, its numbers and its constraint.</p></div></li>
-        <li><span>03</span><div><b>Growth review</b><p>We share where we see the opportunity, and whether a partnership makes sense for both sides.</p></div></li>
-        <li><span>04</span><div><b>Proposal</b><p>Scope, operating fee and performance terms, all written down.</p></div></li>
+        <li><span>01</span><div><b>Tell us about your business</b><p>Two minutes. No logins or reports needed yet.</p></div></li>
+        <li><span>02</span><div><b>We reply within one working day</b><p>With clear next steps, or honest feedback if we're not the right fit.</p></div></li>
+        <li><span>03</span><div><b>Your audit or discovery call</b><p>Clear findings. No obligation.</p></div></li>
       </ol>
       <p class="mono" style="margin-top:28px">Prefer email?</p>
       <a class="email" id="emailLink" href="mailto:hello@the4th.in">hello@the4th.in</a>
     </div>
     <form class="app reveal" id="appForm" novalidate>
-      <div class="fstep"><span class="mono">Partner application</span><span class="bar"><i id="fbar"></i></span><span class="mono" id="fcount">0/10</span></div>
+      <div class="fstep"><span class="mono">Get started</span><span class="bar"><i id="fbar"></i></span><span class="mono" id="fcount">0/7</span></div>
+      <div class="field"><label for="a-want">I'd like</label>
+        <select id="a-want" name="interest"><option>A free growth audit</option><option>To become a growth partner</option></select></div>
       <div class="frow">
         <div class="field"><label for="a-name">Your name</label><input id="a-name" name="name" autocomplete="name" required></div>
         <div class="field"><label for="a-email">Work email</label><input id="a-email" name="email" type="email" autocomplete="email" required></div>
@@ -952,23 +981,12 @@ footer{padding-top:72px}
         <div class="field"><label for="a-company">Company</label><input id="a-company" name="company" autocomplete="organization" required></div>
         <div class="field"><label for="a-site">Website</label><input id="a-site" name="website" type="url" placeholder="https://" autocomplete="url"></div>
       </div>
-      <div class="frow">
-        <div class="field"><label for="a-cat">Product category</label>
-          <select id="a-cat" name="category"><option value="">Select</option><option>Beauty &amp; personal care</option><option>Fashion &amp; apparel</option><option>Food &amp; beverages</option><option>Home &amp; lifestyle</option><option>Health &amp; wellness</option><option>Other</option></select></div>
-        <div class="field"><label for="a-stage">Business stage</label>
-          <select id="a-stage" name="stage"><option value="">Select</option><option>Selling online, early traction</option><option>Established, growing steadily</option><option>Scaling fast</option><option>Plateaued, looking to restart growth</option></select></div>
-      </div>
-      <div class="frow">
-        <div class="field"><label for="a-rev">Monthly revenue</label>
-          <select id="a-rev" name="revenue"><option value="">Select</option><option>Under ₹10 lakh</option><option>₹10–50 lakh</option><option>₹50 lakh – ₹2 crore</option><option>Over ₹2 crore</option><option>Prefer to discuss</option></select></div>
-        <div class="field"><label for="a-ads">Monthly ad budget</label>
-          <select id="a-ads" name="ad_budget"><option value="">Select</option><option>Under ₹1 lakh</option><option>₹1–5 lakh</option><option>₹5–20 lakh</option><option>Over ₹20 lakh</option><option>Not advertising yet</option></select></div>
-      </div>
-      <div class="field"><label for="a-chal">Current growth challenge</label><textarea id="a-chal" name="challenge" placeholder="e.g. CAC keeps rising and repeat orders are flat"></textarea></div>
-      <div class="field"><label for="a-out">What outcome do you want in 12 months?</label><textarea id="a-out" name="outcome"></textarea></div>
+      <div class="field"><label for="a-rev">Monthly revenue</label>
+        <select id="a-rev" name="revenue"><option value="">Select</option><option>Under ₹10 lakh</option><option>₹10–50 lakh</option><option>₹50 lakh – ₹2 crore</option><option>Over ₹2 crore</option><option>Prefer to discuss</option></select></div>
+      <div class="field"><label for="a-chal">Your biggest growth challenge</label><textarea id="a-chal" name="challenge" placeholder="e.g. Ads are getting expensive and sales have stalled"></textarea></div>
       <div class="form-foot">
-        <span class="form-note" id="formNote" role="status">We keep everything you share confidential.</span>
-        <button type="submit" class="btn lime magnetic">Apply to partner <span class="arr">→</span></button>
+        <span class="form-note" id="formNote" role="status">Free. Confidential. No obligation.</span>
+        <button type="submit" class="btn lime magnetic">Get started <span class="arr">→</span></button>
       </div>
     </form>
   </div>
@@ -1231,7 +1249,7 @@ footer{padding-top:72px}
   var fields = $$("#appForm input, #appForm select, #appForm textarea");
   function progress(){ var n = fields.filter(function(f){ return f.value.trim() }).length; fbar.style.transform = "scaleX(" + n/fields.length + ")"; fcount.textContent = n + "/" + fields.length; }
   fields.forEach(function(f){ f.addEventListener("input", progress); f.addEventListener("change", progress) }); progress();
-  form.addEventListener("submit", function(e){ e.preventDefault(); send(form, $("#formNote"), "Partner application: ", "Application received. We'll be in touch after we've read it.", progress); });
+  form.addEventListener("submit", function(e){ e.preventDefault(); var isAudit = form.elements.interest.value.indexOf("audit") > -1; send(form, $("#formNote"), isAudit ? "Free audit request: " : "Partner application: ", "Thanks. We'll reply within one working day.", progress); });
   var aform = $("#auditForm");
   if (aform) aform.addEventListener("submit", function(e){ e.preventDefault(); send(aform, $("#auditNote"), "Free growth audit request: ", "Request received. We'll confirm within one working day and tell you which reports to send.", null); });
 })();
