@@ -490,6 +490,38 @@ footer{padding-top:80px;padding-bottom:calc(36px + env(safe-area-inset-bottom,0p
 .foot-mark .four{color:var(--charcoal)}
 .foot-bot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
 
+/* tighter spacing between and inside sections */
+.hero{padding-top:calc(128px + env(safe-area-inset-top,0px));padding-bottom:clamp(40px,5vw,72px)}
+.hero-facts{margin-top:44px}
+.sec{padding-block:clamp(56px,5.5vw,88px)}
+.h2{font-size:clamp(34px,4.4vw,64px)}
+.label{margin-bottom:16px}
+.lead{font-size:clamp(17px,1.5vw,20px)}
+.split{gap:28px}
+.ledger{margin-top:48px}
+.ledger li{font-size:clamp(19px,1.9vw,26px);padding-block:9px}
+.sys{margin-top:32px}
+.stage-panel{min-height:380px}
+.tl{margin-top:36px}
+.audit-grid,.audit-form{margin-top:48px}
+.caps{margin-top:36px}
+.cap{padding:24px}
+.fit{margin-top:36px}
+.together{margin-top:32px;max-width:900px}
+.model2{margin-top:32px}
+.oneMarket{font-size:clamp(44px,7vw,110px)}
+.princ{margin-top:40px}
+.princ article{padding-block:20px}
+.proof{margin-top:36px}
+.ph{min-height:200px}
+.layers{margin-top:36px}
+.layer{padding:20px 24px}
+.turiya .wrap{gap:40px}
+.states{margin-top:28px}
+.apply .wrap{gap:40px}
+.apply h2{font-size:clamp(36px,4.4vw,64px)}
+.next-s
+
 /* cursor */
 .cur{position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1px solid #fff;pointer-events:none;z-index:200;mix-blend-mode:difference;display:none;transition:width .3s,height .3s,margin .3s,background-color .3s}
 .cur.hover{width:68px;height:68px;margin:-34px 0 0 -34px;background:#fff}
@@ -514,7 +546,6 @@ footer{padding-top:80px;padding-bottom:calc(36px + env(safe-area-inset-bottom,0p
     <ul>
       <li><a href="#approach">Approach</a></li>
       <li><a href="#audit">Free audit</a></li>
-      <li><a href="#fit">Who we work with</a></li>
       <li><a href="#partnership">Partnership</a></li>
     </ul>
     <div class="right">
@@ -731,42 +762,8 @@ footer{padding-top:80px;padding-bottom:calc(36px + env(safe-area-inset-bottom,0p
   </div>
 </section>
 
-<!-- 6 FIT -->
-<section class="sec" id="fit" data-tone="light">
-  <div class="wrap">
-    <p class="mono label reveal">Who we work with</p>
-    <h2 class="h2 reveal">We work with businesses worth growing.</h2>
-    <p class="lead reveal" style="margin-top:24px"><strong>A strong product. A capable team. A meaningful problem to solve.</strong> We look for the potential behind the business, not just its current size. Working with fewer brands lets us go deeper with each one.</p>
-    <div class="cats reveal"><span>Beauty &amp; personal care</span><span>Fashion &amp; apparel</span><span>Food &amp; beverages</span><span>Home &amp; lifestyle</span><span>Health &amp; wellness*</span></div>
-    <p class="mono reveal" style="margin-top:12px">*Subject to category expertise and advertising compliance.</p>
-    <div class="fit">
-      <div class="fit-card yes reveal">
-        <p class="mono">A strong fit</p>
-        <ul>
-          <li><i>✓</i>You already have customers and online sales.</li>
-          <li><i>✓</i>You run a working e-commerce website.</li>
-          <li><i>✓</i>Your product solves a real problem and has proven demand.</li>
-          <li><i>✓</i>You invest, or are ready to invest, in acquisition.</li>
-          <li><i>✓</i>You can fulfil more orders when demand grows.</li>
-          <li><i>✓</i>You're open to data-driven experiments and share the numbers.</li>
-        </ul>
-      </div>
-      <div class="fit-card no reveal">
-        <p class="mono">Not the right fit yet</p>
-        <ul>
-          <li><i>—</i>Pre-revenue or still testing the product.</li>
-          <li><i>—</i>Product economics that can't support paid growth.</li>
-          <li><i>—</i>Looking only for social posts or a single campaign.</li>
-          <li><i>—</i>Expecting guaranteed revenue or ROAS.</li>
-          <li><i>—</i>Unable to share sales and performance data.</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- 7 PARTNERSHIP -->
-<section class="sec" id="partnership" data-tone="dark">
+<section class="sec same" id="partnership" data-tone="dark">
   <div class="wrap">
     <p class="mono label reveal">The partnership model</p>
     <h2 class="h2 reveal">We grow when you grow.</h2>
@@ -853,7 +850,7 @@ footer{padding-top:80px;padding-bottom:calc(36px + env(safe-area-inset-bottom,0p
       <h2 class="reveal">Have something worth growing?</h2>
       <p class="lead reveal" style="margin-top:24px">Let's understand the opportunity beyond the obvious.</p>
       <ol class="next-steps reveal">
-        <li><span>01</span><div><b>We read your application</b><p>Personally, against the fit criteria on this page.</p></div></li>
+        <li><span>01</span><div><b>We read your application</b><p>Personally, to see if there's a genuine fit.</p></div></li>
         <li><span>02</span><div><b>Discovery conversation</b><p>If there's a fit, a call to understand the business, its numbers and its constraint.</p></div></li>
         <li><span>03</span><div><b>Growth review</b><p>We share where we see the opportunity, and whether a partnership makes sense for both sides.</p></div></li>
         <li><span>04</span><div><b>Proposal</b><p>Scope, operating fee and performance terms, all written down.</p></div></li>
