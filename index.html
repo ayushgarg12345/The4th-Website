@@ -730,6 +730,10 @@ body{font-size:var(--fs-body);transition:none}
 .btn{padding:13px 20px;font-size:12px}
 .btn.small{padding:10px 15px;font-size:11px}
 
+/* menu: five links */
+.nav ul{gap:26px}
+@media (max-width:1099px){.nav ul{display:none}}
+
 /* cursor */
 .cur{position:fixed;top:0;left:0;width:34px;height:34px;margin:-17px 0 0 -17px;border-radius:50%;border:1px solid #fff;pointer-events:none;z-index:200;mix-blend-mode:difference;display:none;transition:width .3s,height .3s,margin .3s,background-color .3s}
 .cur.hover{width:68px;height:68px;margin:-34px 0 0 -34px;background:#fff}
@@ -752,23 +756,25 @@ body{font-size:var(--fs-body);transition:none}
   <div class="wrap">
     <a href="#top" class="wm" aria-label="THE4TH home"><span class="the">THE</span><span class="four">4</span><span>TH</span></a>
     <ul>
-      <li><a href="#approach">Approach</a></li>
-      <li><a href="#apply">Free audit</a></li>
-      <li><a href="#partnership">Partnership</a></li>
-      <li><a href="/about">About</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/#services">Our services</a></li>
+      <li><a href="/#work">Case studies</a></li>
+      <li><a href="/about">About us</a></li>
+      <li><a href="/#apply">Contact us</a></li>
     </ul>
     <div class="right">
-      <a href="#apply" class="btn lime small magnetic">Free audit <span class="arr">→</span></a>
+      <a href="/#apply" class="btn lime small magnetic">Free audit <span class="arr">→</span></a>
       <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
     </div>
   </div>
 </header>
 <nav class="drawer" id="drawer" aria-label="Menu">
-  <a href="#approach"><span>01</span>Approach</a>
-  <a href="#fit"><span>02</span>Who we work with</a>
-  <a href="#partnership"><span>03</span>Partnership</a>
-  <a href="#apply"><span>04</span>Become a growth partner</a>
-  <a href="/about"><span>05</span>About</a>
+  <a href="/"><span>01</span>Home</a>
+  <a href="/#services"><span>02</span>Our services</a>
+  <a href="/#apply"><span>03</span>Free audit</a>
+  <a href="/#work"><span>04</span>Case studies</a>
+  <a href="/about"><span>05</span>About us</a>
+  <a href="/#apply"><span>06</span>Contact us</a>
 </nav>
 
 <main id="top">
@@ -1012,7 +1018,7 @@ body{font-size:var(--fs-body);transition:none}
 </section>
 
 <!-- 5 CAPABILITIES -->
-<section class="sec" data-tone="dark">
+<section class="sec" id="services" data-tone="dark">
   <div class="wrap">
     <p class="mono label reveal">What we build</p>
     <h2 class="h2 reveal">We build the systems, so you don't have to run them.</h2>
@@ -1030,7 +1036,7 @@ body{font-size:var(--fs-body);transition:none}
 </section>
 
 <!-- 9 PROOF -->
-<section class="sec" data-tone="light">
+<section class="sec" id="work" data-tone="light">
   <div class="wrap">
     <p class="mono label reveal">Our work</p>
     <h2 class="h2 reveal">Brands we're growing.</h2>
@@ -1093,8 +1099,8 @@ body{font-size:var(--fs-body);transition:none}
   <div class="wrap">
     <div class="foot-top">
       <div><h3>Beyond the obvious.</h3><p class="lead" style="margin-top:14px;font-size:16px">A growth partner for ambitious businesses, built on the philosophy of Turiya.</p></div>
-      <div><p class="mono">Explore</p><ul><li><a href="#approach">Approach</a></li><li><a href="#apply">Free growth audit</a></li><li><a href="#fit">Who we work with</a></li><li><a href="#partnership">Partnership model</a></li><li><a href="/about">About us</a></li></ul></div>
-      <div><p class="mono">Start</p><ul><li><a href="#apply">Become a growth partner</a></li><li><a href="#apply">Request a free audit</a></li></ul></div>
+      <div><p class="mono">Explore</p><ul><li><a href="/">Home</a></li><li><a href="/#services">Our services</a></li><li><a href="/#work">Case studies</a></li><li><a href="/about">About us</a></li></ul></div>
+      <div><p class="mono">Get started</p><ul><li><a href="/#apply">Free audit</a></li><li><a href="/#apply">Contact us</a></li></ul></div>
     </div>
     <div class="foot-mark wm" aria-hidden="true"><span class="the">THE</span><span class="four">4</span><span>TH</span></div>
     <div class="foot-bot"><span class="mono">© <span id="yr">2026</span> THE4TH · India</span><span class="mono">Discover → Acquire → Convert → Compound</span></div>
