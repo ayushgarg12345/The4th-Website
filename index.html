@@ -740,6 +740,13 @@ body{font-size:var(--fs-body);transition:none}
   .anim .reveal,.anim .fade-up,.anim .hero h1 .ln > span{opacity:1;transform:none}
   .anim .diagram .ring-draw,.anim .align .ln{stroke-dashoffset:0}
 }
+
+/* performance: lighter effects */
+.cur{mix-blend-mode:normal;border-color:var(--lime)}
+.cur.hover{background:color-mix(in srgb,var(--lime) 22%,transparent);border-color:var(--lime)}
+header.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:color-mix(in srgb,var(--charcoal) 94%,transparent)}
+.off,.off *{animation-play-state:paused!important}
+.acard-scan{will-change:transform}
 </style>
 </head>
 <body>
@@ -1167,7 +1174,9 @@ body{font-size:var(--fs-body);transition:none}
   addEventListener("pointermove", function(e){ mouse.x=e.clientX; mouse.y=e.clientY; mouse.t=performance.now(); mouse.nx=e.clientX/innerWidth-.5; mouse.ny=e.clientY/innerHeight-.5; });
   if (matchMedia("(hover:hover) and (pointer:fine)").matches && !reduce) {
     var cur = $(".cur"), cx = mouse.x, cy = mouse.y;
-    (function loop(){ cx += (mouse.x-cx)*.2; cy += (mouse.y-cy)*.2; cur.style.transform = "translate("+cx+"px,"+cy+"px)"; requestAnimationFrame(loop) })();
+    var curRun = false;
+    function loop(){ cx += (mouse.x-cx)*.2; cy += (mouse.y-cy)*.2; cur.style.transform = "translate("+cx+"px,"+cy+"px)"; if (Math.abs(mouse.x-cx) + Math.abs(mouse.y-cy) > .5) requestAnimationFrame(loop); else curRun = false; }
+    addEventListener("pointermove", function(){ if (!curRun){ curRun = true; requestAnimationFrame(loop); } }, {passive:true});
     $$("a,button,select,input,textarea").forEach(function(a){
       a.addEventListener("mouseenter", function(){ cur.classList.add("hover") });
       a.addEventListener("mouseleave", function(){ cur.classList.remove("hover") });
@@ -1284,6 +1293,16 @@ body{font-size:var(--fs-body);transition:none}
     addEventListener("scroll", onBelief, {passive:true}); onBelief();
   }
 
+  /* ---- performance: pause animations that are off screen ---- */
+  if ("IntersectionObserver" in window){
+    var pio = new IntersectionObserver(function(es){ es.forEach(function(e){
+      e.target.classList.toggle("off", !e.isIntersecting);
+      var svgs = e.target.querySelectorAll("svg");
+      for (var i=0;i<svgs.length;i++){ if (svgs[i].pauseAnimations){ if (e.isIntersecting) svgs[i].unpauseAnimations(); else svgs[i].pauseAnimations(); } }
+    }) }, {rootMargin:"200px 0px"});
+    $$("main > section, .ticker").forEach(function(s){ pio.observe(s) });
+  }
+
   /* ---- GROWTH SYSTEM diagram ---- */
   var nodes = $$(".node"), stages = $$(".stage"), spokes = $$(".spoke"), bars = $$("#sysTabs i"), tabs = $("#sysTabs");
   var active = 0, CYCLE = 12000, userPicked = false, lastSwitch = performance.now(), diagVisible = false;
@@ -1318,9 +1337,10 @@ body{font-size:var(--fs-body);transition:none}
   function frame(now){
     if (heroOn) lens(now);
     if (diagVisible) system(now); else lastSwitch = now - Math.min(now - lastSwitch, CYCLE - 600);
-    requestAnimationFrame(frame);
+    if (heroOn || diagVisible) requestAnimationFrame(frame); else frame.on = false;
   }
-  requestAnimationFrame(frame);
+  frame.on = true; requestAnimationFrame(frame);
+  setInterval(function(){ if (!frame.on && (heroOn || diagVisible)){ frame.on = true; requestAnimationFrame(frame); } }, 200);
 
   /* ---- forms: partner application + free audit ---- */
   function send(form, note, subject, okMsg, after){
