@@ -1146,7 +1146,7 @@ header.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background
 (function(){
   /* ======== EDIT THESE TWO LINES ======== */
   var CONTACT_EMAIL = "hello@the4th.in";  // your real inbox
-  var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxEga63Q3Uwbfz74WB1AVcuEskMqACjAwW6knfn2MNbZ_Kn_adnpaZquOt0FBM19f6yhA/exec";
+  var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxw-IVmV10keU7Vylz2Z5-VekLM8x4TFpjpZadsvQ31tXxkFGtN-b2UXEjQqlnvraiEew/exec";
   /* ====================================== */
 
   var root = document.documentElement;
@@ -1378,28 +1378,21 @@ header.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background
 
   /* ---- forms: partner application + free audit ---- */
   function send(form, note, subject, okMsg, after){
-    var list = Array.prototype.slice.call(form.querySelectorAll("input, select, textarea"));
     var el = form.elements, name = el.name.value.trim(), mail = el.email.value.trim(), company = el.company.value.trim();
     if (!name || !company || !/^\S+@\S+\.\S+$/.test(mail)) { note.textContent = "Please add your name, company and a valid email so we can reply."; return; }
-    var subj = subject + company;
-    if (FORM_ENDPOINT) {
-      var fd = new FormData(form); fd.append("_subject", subj);
-      note.textContent = "Sending…";
-      var toSheet = FORM_ENDPOINT.indexOf("script.google.com") > -1;
-      fetch(FORM_ENDPOINT, toSheet ? {method:"POST", mode:"no-cors", body:fd} : {method:"POST", headers:{"Accept":"application/json"}, body:fd})
-        .then(function(r){ if (!toSheet && !r.ok) throw 0; form.reset(); if (after) after(); note.textContent = okMsg; })
-        .catch(function(){ note.textContent = "That didn't send. Please email " + CONTACT_EMAIL + " instead."; });
-    } else {
-      var lines = list.map(function(f){ var l = form.querySelector('label[for="'+f.id+'"]'); return (l ? l.textContent : f.name) + ": " + (f.value || "—") }).join("\n");
-      location.href = "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent(subj) + "&body=" + encodeURIComponent(lines);
-      note.textContent = "Your email app should open with everything filled in. If not, write to " + CONTACT_EMAIL + ".";
-    }
+    var fd = new FormData(form); fd.append("_subject", subject + company);
+    note.textContent = "Sending…";
+    var toSheet = FORM_ENDPOINT.indexOf("script.google.com") > -1;
+    fetch(FORM_ENDPOINT, toSheet ? {method:"POST", mode:"no-cors", body:fd} : {method:"POST", headers:{"Accept":"application/json"}, body:fd})
+      .then(function(r){ if (!toSheet && !r.ok) throw 0; form.reset(); if (after) after(); note.textContent = okMsg; })
+      .catch(function(){ note.textContent = "That didn't send. Please email " + CONTACT_EMAIL + " instead."; });
   }
+
   var form = $("#appForm"), fbar = $("#fbar"), fcount = $("#fcount");
   var fields = $$("#appForm input, #appForm select, #appForm textarea");
   function progress(){ var n = fields.filter(function(f){ return f.value.trim() }).length; fbar.style.transform = "scaleX(" + n/fields.length + ")"; fcount.textContent = n + "/" + fields.length; }
   fields.forEach(function(f){ f.addEventListener("input", progress); f.addEventListener("change", progress) }); progress();
-  form.addEventListener("submit", function(e){ e.preventDefault(); var isAudit = form.elements.interest.value.indexOf("audit") > -1; send(form, $("#formNote"), isAudit ? "Free audit request: " : "Partner application: ", "Thanks. We'll reply within one working day.", progress); });
+  $("#appForm").addEventListener("submit", function(e){ e.preventDefault(); var f = e.target; var isAudit = f.elements.interest && f.elements.interest.value.indexOf("audit") > -1; send(f, $("#formNote"), isAudit ? "Free audit request: " : "Partner application: ", "Thanks. We'll reply within one working day.", typeof progress === "function" ? progress : null); });
   var aform = $("#auditForm");
   if (aform) aform.addEventListener("submit", function(e){ e.preventDefault(); send(aform, $("#auditNote"), "Free growth audit request: ", "Request received. We'll confirm within one working day and tell you which reports to send.", null); });
 })();
