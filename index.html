@@ -1146,7 +1146,7 @@ header.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background
 (function(){
   /* ======== EDIT THESE TWO LINES ======== */
   var CONTACT_EMAIL = "hello@the4th.in";  // your real inbox
-  var FORM_ENDPOINT = "";                 // optional: a free Formspree / Web3Forms URL. Empty = opens the visitor's email app.
+  var FORM_ENDPOINT = "https://script.google.com/macros/s/AKfycbxEga63Q3Uwbfz74WB1AVcuEskMqACjAwW6knfn2MNbZ_Kn_adnpaZquOt0FBM19f6yhA/exec";
   /* ====================================== */
 
   var root = document.documentElement;
@@ -1385,8 +1385,9 @@ header.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background
     if (FORM_ENDPOINT) {
       var fd = new FormData(form); fd.append("_subject", subj);
       note.textContent = "Sending…";
-      fetch(FORM_ENDPOINT, {method:"POST", headers:{"Accept":"application/json"}, body:fd})
-        .then(function(r){ if (!r.ok) throw 0; form.reset(); if (after) after(); note.textContent = okMsg; })
+      var toSheet = FORM_ENDPOINT.indexOf("script.google.com") > -1;
+      fetch(FORM_ENDPOINT, toSheet ? {method:"POST", mode:"no-cors", body:fd} : {method:"POST", headers:{"Accept":"application/json"}, body:fd})
+        .then(function(r){ if (!toSheet && !r.ok) throw 0; form.reset(); if (after) after(); note.textContent = okMsg; })
         .catch(function(){ note.textContent = "That didn't send. Please email " + CONTACT_EMAIL + " instead."; });
     } else {
       var lines = list.map(function(f){ var l = form.querySelector('label[for="'+f.id+'"]'); return (l ? l.textContent : f.name) + ": " + (f.value || "—") }).join("\n");
