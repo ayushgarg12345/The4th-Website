@@ -751,6 +751,34 @@ body{font-size:var(--fs-body);transition:none}
 header.nav.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none;background:color-mix(in srgb,var(--charcoal) 94%,transparent)}
 .off,.off *{animation-play-state:paused!important}
 .acard-scan{will-change:transform}
+
+/* responsive hero: the audit card stays beside the headline and shrinks on tablet and phone */
+@media (min-width:700px) and (max-width:1099px){
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 300px;column-gap:32px;align-items:center}
+  .hero-copy,.hero-facts{grid-column:1}
+  .acard{grid-column:2;grid-row:1 / span 2;margin:0;width:360px;max-width:none;padding:22px;zoom:.83}
+}
+@media (max-width:699px){
+  .hero{padding-top:calc(104px + env(safe-area-inset-top,0px))}
+  .hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) 150px;column-gap:12px;align-items:start;grid-template-areas:"label label" "title card" "sub sub" "lead lead" "ctas ctas" "trust trust" "facts facts"}
+  .hero-copy{display:contents}
+  .hero-copy > .label{grid-area:label}
+  .hero h1{grid-area:title;align-self:center;font-size:clamp(30px,9vw,38px)}
+  .hero .sub{grid-area:sub}
+  .hero .lead{grid-area:lead}
+  .hero .ctas{grid-area:ctas}
+  .hero-trust{grid-area:trust}
+  .hero-facts{grid-area:facts}
+  .acard{grid-area:card;width:340px;max-width:none;margin:0;padding:22px;gap:14px;zoom:.44}
+  .acard-title{font-size:24px}
+  .acard-list li{font-size:15px;padding-block:11px}
+  .diagram{width:min(320px,100%)}
+  .market{max-width:320px}
+}
+@media (max-width:360px){
+  .hero .wrap{grid-template-columns:minmax(0,1fr) 128px}
+  .acard{zoom:.376}
+}
 </style>
 </head>
 <body>
